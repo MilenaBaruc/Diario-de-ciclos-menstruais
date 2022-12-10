@@ -6,11 +6,13 @@ public class Ciclo {
 	private int duracaoCiclo;
 	private int duracaoMenstruacao;
 	private Intensidade fluxoMenstrual;
+	private boolean sentiuSintoma;
 	
-	public Ciclo(boolean diaM, int dCiclo, int dMens) {
+	public Ciclo(boolean diaM, int dCiclo, int dMens, boolean sentiuSintoma) {
 		diaM = diaMenstruada;
 		dCiclo = duracaoCiclo;
 		dMens = duracaoMenstruacao;
+		this.sentiuSintoma = sentiuSintoma;
 	}
 	
 	public boolean isDiaMenstruada() {
@@ -43,6 +45,14 @@ public class Ciclo {
 
 	public void setFluxoMenstrual(Intensidade fluxoMenstrual) {
 		this.fluxoMenstrual = fluxoMenstrual;
+	}
+	
+	public boolean isSentiuSintoma() {
+		return sentiuSintoma;
+	}
+
+	public void setSentiuSintoma(boolean sentiuSintoma) {
+		this.sentiuSintoma = sentiuSintoma;
 	}
 
 	public void removerCiclo() {

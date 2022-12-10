@@ -1,11 +1,12 @@
 package Entidades;
 
-public class Fisico {
+public class Fisico extends Sintoma {
 	
 	private boolean pratica;
 	private String remedioTomado;
-	
-	public Fisico(boolean pratica, String remedioTomado) {
+
+	public Fisico(String nota, String sintoma, boolean pratica, String remedioTomado) {
+		super(nota, sintoma);
 		this.pratica = pratica;
 		this.remedioTomado = remedioTomado;
 	}

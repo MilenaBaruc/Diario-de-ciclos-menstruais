@@ -1,12 +1,14 @@
 package Entidades;
 
-public class Humor {
+public class Humor extends Sintoma{
 	
-	private String gatilho; 
+    private String gatilho; 
 	private Humores humor;
-	
-	public Humor(String gatilho) {
+
+	public Humor(String nota, String sintoma, String gatilho, Humores humor) {
+		super(nota, sintoma);
 		this.gatilho = gatilho;
+		this.humor = humor;
 	}
 
 	public String getGatilho() {

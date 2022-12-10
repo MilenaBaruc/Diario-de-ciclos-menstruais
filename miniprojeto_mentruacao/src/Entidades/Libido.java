@@ -1,14 +1,14 @@
 package Entidades;
 
-public class Libido {
+public class Libido extends Sintoma {
 	
 	private boolean relacoesComParceiro;
 	private boolean relacoesSemParceiro;
 	
-	private Libido(boolean rcp, boolean rsp) {
-		rcp = relacoesComParceiro;
-		rsp = relacoesSemParceiro;
-		
+	public Libido(String nota, String sintoma, boolean relacoesComParceiro, boolean relacoesSemParceiro) {
+		super(nota, sintoma);
+		this.relacoesComParceiro = relacoesComParceiro;
+		this.relacoesSemParceiro = relacoesSemParceiro;
 	}
 
 	public boolean isRelacoesComParceiro() {
