@@ -1,6 +1,6 @@
 package Entidades;
 
-public class Sintomas {
+public class Sintoma {
 	
 	private boolean sentiuSintoma;
 	private TipoSintoma tipoSintoma;
@@ -10,7 +10,7 @@ public class Sintomas {
 	
 	
 	
-	public Sintomas(boolean sentiuSintoma, String nota, String sintoma){
+	public Sintoma(boolean sentiuSintoma, String nota, String sintoma){
 		this.sentiuSintoma = sentiuSintoma;
 		this.descricao = nota;
 		this.sintoma = sintoma;
