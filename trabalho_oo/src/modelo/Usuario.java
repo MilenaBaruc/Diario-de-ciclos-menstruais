@@ -1,19 +1,20 @@
-package Entidades;
+package modelo;
 
 public class Usuario {
-	
 	private String nome;
 	private String dataNascimento;
 	private boolean gravidez;
 	private double peso;
 	
+	public Usuario() {}
+
 	public Usuario(String nome, String dataNascimento, boolean gravidez, double peso) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.gravidez = gravidez;
 		this.peso = peso;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -46,7 +47,13 @@ public class Usuario {
 		this.peso = peso;
 	}
 
-	public void removerUsuario() {
-		
+	public String toString() {
+		return "Usuario\n"
+				+ "   nome = " + nome + "\n"
+				+ "   dataNascimento = " + dataNascimento + "\n" 
+				+ "   gravidez = " + gravidez + "\n" 
+				+ "   peso = "+ peso;
 	}
-}	
+	
+	
+}
