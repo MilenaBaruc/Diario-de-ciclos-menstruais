@@ -1,19 +1,31 @@
 package view;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Begin {
 
 	Begin(){
-		JFrame jfrm = new JFrame("Nome da aplicação");
-		JButton btn1 = new JButton("Entrar");
-		btn1.setBounds(100, 100, 100, 30);
-		jfrm.setSize(750, 500);
-		jfrm.add(btn1);
-		jfrm.setLayout(null);
+		JFrame jfrm = new JFrame("Lótus");
+		JLabel label = new JLabel();
+		//BufferedImage img = ImageIO.read(getClass().getResource("/imagens/fundodetelaentrada.jpg"));
+		
+		jfrm.setSize(1050, 650);
+		jfrm.setResizable(false);
+		jfrm.setBackground(Color.pink);
 		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		jfrm.setVisible(true);		
+		jfrm.setVisible(true);	
+		
+		
+		Container c = jfrm.getContentPane();
+		c.setBackground(new java.awt.Color(254, 166, 166));
+		;
 	}
+	
 	
 	public static void main(String[] args) {
 		new Begin();
