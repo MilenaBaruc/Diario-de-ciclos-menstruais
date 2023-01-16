@@ -1,18 +1,47 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Principal {
-	
+	private static JFrame frame;
 	Principal(){
-		JFrame frame = new JFrame("Nome da aplicacap");
-		JButton btn1 = new JButton("Registrar menstruação");
-		JButton btn2 = new JButton("Registrar Sintoma");
-		JButton btn3 = new JButton("Ver ciclo");
+		frame = new JFrame("Lótus");
+		frame.setSize(800, 550);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+			
+		background();
+		frame.setVisible(true);
 	}
-
+	
+	public void background() {
+		try {
+			BufferedImage img = ImageIO.read(getClass().getResource("/images/fundoP2.jpg"));
+			Image dimg = img.getScaledInstance(800, 550, Image.SCALE_SMOOTH);
+			ImageIcon icon = new ImageIcon(dimg);
+			JLabel label = new JLabel();
+			label.setIcon(icon);
+			frame.getContentPane().add(label, BorderLayout.CENTER);
+			frame.setContentPane(label);
+			frame.pack();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
 	public static void main(String[] args) {
+		new Principal();
 	}
 
 }
