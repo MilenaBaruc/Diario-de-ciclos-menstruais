@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -30,7 +31,7 @@ public class EditarInfo implements ActionListener{
 		nome();
 		birth();
 		btnAtt();
-		frame.getContentPane().setBackground(new java.awt.Color(206, 110, 199));
+		frame.getContentPane().setBackground(new Color(206, 110, 199));
 	};
 
 	public void peso() {
@@ -87,7 +88,7 @@ public class EditarInfo implements ActionListener{
 	}
 
 	public void btnAtt() {
-		btnAtt = new JButton("Alterar");
+		btnAtt = new JButton("Registrar");
 		btnAtt.setBounds(150, 300, 100, 30);
 		
 		btnAtt.setActionCommand("att");

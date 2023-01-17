@@ -17,6 +17,7 @@ public class Begin implements ActionListener{
 	
 	private static JFrame frame;
 	private static JButton btnEntrar;
+	private static JButton btnRegister;
 
 	Begin(){
 		frame = new JFrame("Lótus");
@@ -27,6 +28,8 @@ public class Begin implements ActionListener{
 			
 		background();
 		btnEntrar();
+		btnRegister();
+	
 		
 		frame.setVisible(true);
 	}
@@ -48,8 +51,9 @@ public class Begin implements ActionListener{
 		
 		public void btnEntrar() {
 			btnEntrar = new JButton("Entrar");
-			btnEntrar.setBounds(600, 400, 100, 100);
+			btnEntrar.setBounds(500, 400, 100, 100);
 			btnEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			
 			
 			btnEntrar.setActionCommand("entrar");
 			btnEntrar.addActionListener(this);
@@ -61,6 +65,24 @@ public class Begin implements ActionListener{
 			frame.add(btnEntrar);
 			
 		}
+		
+		public void btnRegister() {
+			btnRegister = new JButton("Registrar");
+			btnRegister.setBounds(600, 400, 150, 100);
+			btnRegister.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			
+			
+			btnRegister.setActionCommand("registrar");
+			btnRegister.addActionListener(this);
+			
+			btnRegister.setBackground(null);
+			btnRegister.setOpaque(false);
+			btnRegister.setContentAreaFilled(false);
+			btnRegister.setBorderPainted(false);
+			frame.add(btnRegister);
+			
+		}
+		
 
 	
 	public static void main(String[] args) {
@@ -69,8 +91,12 @@ public class Begin implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("entrar" == ae.getActionCommand()) {
-			 new EditarInfo();
-	         frame.dispose();
+			 new Login();
+			 frame.dispose();
 	}
+		if("registrar" == ae.getActionCommand()) {
+			new EditarInfo();
+			frame.dispose();
+		}
 }
 }
