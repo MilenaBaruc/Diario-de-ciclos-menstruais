@@ -1,7 +1,9 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -21,14 +23,24 @@ public class Sintomas{
     private JButton addBtn;
 
     public Sintomas() {
+    	
     	frame = new JFrame("Lótus");
 		frame.setSize(800, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
+		
+		JPanel painel2 = new JPanel();
+		painel2.setLayout(new FlowLayout());
+       
+        for(int i = 0; i < 20; ++i) {
+        	painel2.add(new JButton("botao" + i));
+        }
+        JScrollPane srcPainel = new JScrollPane(painel2);
+        frame.add(srcPainel);
     	
-    	telaPainel();
-    	background();
+    	//telaPainel();
+    	
     	frame.setVisible(true);
     }
     
@@ -57,10 +69,10 @@ public class Sintomas{
         telaPainel = new JPanel();
         JPanel painel2 = new JPanel();
         JScrollPane srcPainel = new JScrollPane(painel2);
-        
+        srcPainel.setBackground(new Color(0,0,0));
         srcPainel.setPreferredSize(new Dimension(790, 510));
-        telaPainel.add(srcPainel);
-        frame.add(telaPainel);
+        frame.add(srcPainel);
+        //frame.add(telaPainel);
     }
     
     public void addBtn() {

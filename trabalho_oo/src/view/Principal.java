@@ -2,13 +2,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -18,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import modelo.Sintoma;
 
 public class Principal implements ActionListener{
 	private JButton btnAddSint;
@@ -57,9 +55,13 @@ public class Principal implements ActionListener{
 	}
 	
 	public void btnAddSint() {
+		
 		btnAddSint = new JButton("Adicionar Sintomas do Dia");
+		btnAddSint.setActionCommand("Add Sintoma");
 		btnAddSint.setBounds(550, 500, 190, 30);
+		btnAddSint.addActionListener(this);
 		frame.add(btnAddSint);
+		
 	}
 	
 	public void btnConfig() {
@@ -86,6 +88,9 @@ public class Principal implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if("configurar" == e.getActionCommand()) {
 			new Configuracoes();
+		}
+		if("Add Sintoma" == e.getActionCommand()) {
+			new Sintomas();
 		}
 	}
 
