@@ -23,7 +23,7 @@ public class Application {
 		usuario.setDataNascimento("30/12/2003");
 		usuario.setGravidez(true);
 		usuario.setNome("Victoria Huga");
-		usuario.setPeso(63.00);
+		usuario.setPeso("63.00");
 		
 		ciclo.setDiaMenstruada(true);
 		ciclo.setDuracaoCiclo(25);

@@ -4,17 +4,19 @@ public class Usuario {
 	private String nome;
 	private String dataNascimento;
 	private boolean gravidez;
-	private double peso;
+	private String peso;
 	
 	public Usuario() {}
 
-	public Usuario(String nome, String dataNascimento, boolean gravidez, double peso) {
+	public Usuario(String nome, String dataNascimento, boolean gravidez, String peso) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.gravidez = gravidez;
 		this.peso = peso;
 	}
-
+	
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -39,11 +41,11 @@ public class Usuario {
 		this.gravidez = gravidez;
 	}
 
-	public double getPeso() {
+	public String getPeso() {
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(String peso) {
 		this.peso = peso;
 	}
 
@@ -54,6 +56,8 @@ public class Usuario {
 				+ "   gravidez = " + gravidez + "\n" 
 				+ "   peso = "+ peso;
 	}
+
+	
 	
 	
 }

@@ -95,7 +95,7 @@ public class Begin implements ActionListener{
 			 frame.dispose();
 	}
 		if("registrar" == ae.getActionCommand()) {
-			new EditarInfo();
+			new Cadastro();
 			frame.dispose();
 		}
 }
