@@ -20,6 +20,7 @@ public class Dados {
 	
 	
 	public Dados() {
+		preencherDados();
 	}
 	
 	public void preencherDados() {
@@ -59,7 +60,10 @@ public class Dados {
 		user[qtdUser] = usuario;
 		++qtdUser;
 	}
-
+	public void remUser(int i) {
+		user[i] = null;
+	}
+	
 	public Ciclo[] getCiclo() {
 		return ciclo;
 	}
@@ -70,6 +74,9 @@ public class Dados {
 	public void addCilo(Ciclo ciclo) {
 		this.ciclo[qtdCiclo] = ciclo;
 		++qtdCiclo;
+	}
+	public void remCiclo(int i) {
+		ciclo[i] = null;
 	}
 	public Humor[] getHumor() {
 		return humor;
@@ -83,6 +90,9 @@ public class Dados {
 		this.humor[qtdHumor] = humor;
 		++qtdHumor;
 	}
+	public void remHumor(int i) {
+		humor[i] = null;
+	}
 
 	public Fisico[] getFisico() {
 		return fisico;
@@ -94,6 +104,9 @@ public class Dados {
 	public void addFisico(Fisico fisico) {
 		this.fisico[qtdFisico] = fisico;
 		++qtdFisico;
+	}
+	public void remFisico(int i) {
+		fisico[i] = null;
 	}
 
 	public Libido[] getLibido() {
