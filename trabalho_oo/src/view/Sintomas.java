@@ -34,7 +34,7 @@ public class Sintomas implements ActionListener{
 		background();
 		painelCiclo();
 		painelSintoma();
-		painelMenstruacao();
+		//painelMenstruacao();
 		btnSair();
 		frame.setVisible(true);
 	}
@@ -66,7 +66,7 @@ public class Sintomas implements ActionListener{
 		JButton Cciclo = new JButton("Registrar ciclo");
 		JButton Rciclo = new JButton("Ver ciclos");
 		JButton Uciclo = new JButton("Editar ciclo");
-		JButton Dciclo = new JButton("Excluir clicos");
+		JButton Dciclo = new JButton("Excluir ciclos");
 		
 		painelCiclo.setBounds(30, 95, 725, 100);
 		painelCiclo.setBackground(new Color(255, 215, 249));
@@ -150,7 +150,7 @@ public class Sintomas implements ActionListener{
 		frame.add(painelSintoma);
 	}
 
-	public void painelMenstruacao() {
+	/*public void painelMenstruacao() {
 		JPanel painelMenstruacao = new JPanel();
 		JLabel menstruacao = new JLabel("Adicionar mestruação:");
 		JButton Cmenstruacao = new JButton("Registrar mestruação");
@@ -194,7 +194,7 @@ public class Sintomas implements ActionListener{
 		painelMenstruacao.add(menstruacao); painelMenstruacao.add(Cmenstruacao); painelMenstruacao.add(Rmenstruacao); 
 		painelMenstruacao.add(Umenstruacao); painelMenstruacao.add(Dmenstruacao);
 		frame.add(painelMenstruacao);
-	}
+	}*/
 
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");

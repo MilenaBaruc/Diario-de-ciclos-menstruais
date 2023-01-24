@@ -13,6 +13,7 @@ import modelo.*;
 import controller.*;
 
 public class Principal implements ActionListener{
+	
 	private JButton btnAddSint;
 	private static JFrame frame;
 	private JPanel painelSint;
