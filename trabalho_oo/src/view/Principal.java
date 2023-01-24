@@ -1,30 +1,23 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
+import javax.imageio.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
-import modelo.Sintoma;
+import modelo.*;
+import controller.*;
 
 public class Principal implements ActionListener{
 	private JButton btnAddSint;
 	private static JFrame frame;
 	private JPanel painelSint;
 	private JButton btnConfig;
+	private JLabel nomeLabel;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	
 	
@@ -102,6 +95,10 @@ public class Principal implements ActionListener{
 		btnSair.setActionCommand("sair");
 		btnSair.addActionListener(this);
 		frame.add(btnSair);
+	}
+	
+	public void nomeLabel() {
+		nomeLabel = new JLabel();
 	}
 
 	public static void main(String[] args) {

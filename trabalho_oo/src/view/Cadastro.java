@@ -11,7 +11,6 @@ import controller.*;
 public class Cadastro implements ActionListener{
 	private static JFrame frame;
 	private static JButton btnAtt;
-	private RegisController controller = new RegisController();
 
 	String[] Gravida = { "Sim", "Nao" };
 	JTextField nome;
@@ -109,10 +108,6 @@ public class Cadastro implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
 		if ("att" == ae.getActionCommand()) {
 			 new Principal();
-			 controller.setNome(nome.getText());
-			 controller.setDataNascimento(birth.getText());
-			 controller.setPeso(peso.getText());
-			 System.out.print(nome.getText() + " " + birth.getText() + " " + peso.getText() + "\n");
 	         frame.dispose();
 	}
 
