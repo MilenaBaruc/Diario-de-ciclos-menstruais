@@ -29,7 +29,7 @@ public class Principal implements ActionListener{
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		background();
-		painelSint();
+		//painelSint();
 		btnAddSint();
 		btnConfig();
 		btnSair();
@@ -78,13 +78,13 @@ public class Principal implements ActionListener{
 		frame.add(btnConfig);
 	}
 	
-	public void painelSint() {
+	/*public void painelSint() {
 		painelSint = new JPanel();
 		painelSint.setBackground(new Color(0, 0, 0));
 		painelSint.setBounds(25, 65, 750, 400);
 		painelSint.setVisible(true);
 		frame.add(painelSint);
-	}
+	}*/
 	
 	public void btnSair() {
 		JButton btnSair = new JButton("Sair");

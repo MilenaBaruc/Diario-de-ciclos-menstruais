@@ -82,6 +82,8 @@ public class Sintomas implements ActionListener{
 		Cciclo.setForeground(new Color(255, 255, 255));
 		Cciclo.setBorder(blackline);
 		Cciclo.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Cciclo.setActionCommand("registrarciclo");
+		Cciclo.addActionListener(this);
 		
 		Rciclo.setBounds(230, 60, 120, 20);
 		Rciclo.setBackground(new Color(108, 70, 117));
@@ -211,6 +213,11 @@ public class Sintomas implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if("voltar" == e.getActionCommand()) {
 			new Principal();
+			frame.dispose();
+		}
+		
+		if(e.getActionCommand() == "registrarciclo") {
+			new Registrar();
 			frame.dispose();
 		}
 	}
