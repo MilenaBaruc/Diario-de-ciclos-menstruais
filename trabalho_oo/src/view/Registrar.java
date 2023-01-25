@@ -21,16 +21,15 @@ public class Registrar implements ActionListener{
 	public Registrar(){
 		
 		frame = new JFrame("Lótus");
-		frame.setSize(800, 550);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		background();
 		frame.setVisible(true);
 		fluxoMens();
 		durMens();
 		durCiclo();
 		diaMens();
+		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		
 	}
 	
@@ -40,33 +39,19 @@ public class Registrar implements ActionListener{
 		
 	}
 	
-	public void background() {
-		try {
-			BufferedImage img = ImageIO.read(getClass().getResource("/images/fundoP3.jpg"));
-			Image dimg = img.getScaledInstance(800, 550, Image.SCALE_SMOOTH);
-			ImageIcon icon = new ImageIcon(dimg);
-			JLabel label = new JLabel();
-			label.setIcon(icon);
-			frame.getContentPane().add(label, BorderLayout.CENTER);
-			frame.setContentPane(label);
-			frame.pack();
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
-	}
-	
 	public void diaMens() {
 		
 		JLabel diaMens = new JLabel("Está menstruada?");
-		diaMens.setBounds(70, 50, 250, 40);
-		diaMens.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		diaMens.setBounds(20, 10, 250, 15);
+		diaMens.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(diaMens);
 		
 		sim = new JRadioButton("Sim");
 		nao = new JRadioButton("Não");
-		sim.setBounds(70, 90, 55, 20);
-		nao.setBounds(120, 90, 57, 20);
+		sim.setBounds(20, 30, 55, 15);
+		nao.setBounds(70, 30, 55, 15);
+		sim.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		nao.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(sim);
 		frame.add(nao);
 		
@@ -82,14 +67,15 @@ public class Registrar implements ActionListener{
 	
 	public void durCiclo() {
 		
-		JLabel durCiclo = new JLabel("Qual a duração do seu Ciclo?: ");
-		durCiclo.setBounds(70, 120, 250, 20);
-		durCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		JLabel durCiclo = new JLabel("Qual a duração do seu Ciclo?");
+		durCiclo.setBounds(20, 60, 250, 15);
+		durCiclo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(durCiclo);
 		
 		JTextField boxCiclo = new JTextField();
-		boxCiclo.setBounds(72, 120, 200, 20);
-		boxCiclo.setBounds(72, 150, 200, 20);
+		//boxCiclo.setBounds(217, 50, 20, 15);
+		boxCiclo.setBounds(217, 60, 20, 15);
+		boxCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(boxCiclo);
 		
 	}
@@ -97,13 +83,13 @@ public class Registrar implements ActionListener{
     public void durMens() {
 		
 		JLabel durMens = new JLabel("Qual a duração da sua Menstruação?");
-		durMens.setBounds(70, 180, 300, 20);
-		durMens.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		durMens.setBounds(20, 90, 300, 15);
+		durMens.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(durMens);
 		
 		JTextField boxMens = new JTextField();
-		boxMens.setBounds(72, 180, 200, 20);
-		boxMens.setBounds(72, 210, 200, 20);
+		boxMens.setBounds(277, 90, 20, 15);
+		boxMens.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(boxMens);
 		
 	}
@@ -111,18 +97,22 @@ public class Registrar implements ActionListener{
     public void fluxoMens() {
     	
     	JLabel fluxoMens = new JLabel("Como está seu fluxo menstrual?");
-    	fluxoMens.setBounds(70, 240, 300, 20);
-    	fluxoMens.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    	fluxoMens.setBounds(20, 120, 300, 15);
+    	fluxoMens.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(fluxoMens);
 		
 		inexistente = new JRadioButton("Inexistente");
 		leve = new JRadioButton("Leve");
 		normal = new JRadioButton("Normal");
 		forte = new JRadioButton("Forte");
-		inexistente.setBounds(70, 270, 100, 20);
-		leve.setBounds(70, 310, 100, 20);
-		normal.setBounds(70, 350, 100, 20);
-		forte.setBounds(70, 390, 100, 20);
+		inexistente.setBounds(20, 140, 100, 15);
+		leve.setBounds(20, 160, 100, 15);
+		normal.setBounds(20, 180, 100, 15);
+		forte.setBounds(20, 200, 100, 15);
+		inexistente.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		leve.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		normal.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		forte.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(inexistente);
 		frame.add(leve);
 		frame.add(normal);

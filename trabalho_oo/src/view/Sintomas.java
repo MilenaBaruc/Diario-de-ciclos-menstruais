@@ -218,7 +218,7 @@ public class Sintomas implements ActionListener{
 		
 		if(e.getActionCommand() == "registrarciclo") {
 			new Registrar();
-			frame.dispose();
+			//frame.dispose();
 		}
 	}
 	
