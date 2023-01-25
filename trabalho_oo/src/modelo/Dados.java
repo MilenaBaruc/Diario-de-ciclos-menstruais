@@ -1,16 +1,18 @@
 package modelo;
 
+import java.util.ArrayList;
+
 import enumeradores.Humores;
 import enumeradores.Intensidade;
 import enumeradores.Textura;
 
 public class Dados {
-	private Usuario[] user = new Usuario[10];
-	private Ciclo[] ciclo = new Ciclo[10];
-	private Humor[] humor = new Humor[10];
-	private Fisico[] fisico = new Fisico[10];
-	private Libido[] libido = new Libido[10];
-	private Secrecao[] secrecao = new Secrecao[10];
+	private ArrayList<Usuario> user = new ArrayList<Usuario>();
+	private ArrayList<Ciclo> ciclo = new ArrayList<Ciclo>();
+	private ArrayList<Humor> humor = new ArrayList<Humor>();
+	private ArrayList<Fisico> fisico = new ArrayList<Fisico>();
+	private ArrayList<Libido> libido = new ArrayList<Libido>();
+	private ArrayList<Secrecao> secrecao = new ArrayList<Secrecao>();
 	private int qtdUser = 0;
 	private int qtdCiclo = 0;
 	private int qtdHumor = 0;
@@ -26,19 +28,19 @@ public class Dados {
 	public void preencherDados() {
 		for(int i = 0; i < 5; ++i) {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
-			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE);
+			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/1202");
 			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", Humores.ALEGRE);
 			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", Textura.AQUOSA);
 			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true);
 			Fisico fisico = new Fisico(Intensidade.FORTE, "dor no u" + i, "dor", false, "dorflex");
 		
 		
-			user[i] = usuario;
-			this.ciclo[i] = ciclo;
-			this.humor[i] = humor;
-			this.libido[i] = libido;
-			this.fisico[i] = fisico;
-			this.secrecao[i] = secrecao;
+			user.add(usuario);
+			this.ciclo.add(ciclo);
+			this.humor.add(humor);
+			this.libido.add(libido);
+			this.fisico.add(fisico);
+			this.secrecao.add(secrecao);
 			
 			++qtdCiclo;
 			++qtdFisico;
@@ -49,87 +51,76 @@ public class Dados {
 		}
 	}
 
-	public Usuario[] getUser() {
+
+	public ArrayList<Usuario> getUser() {
 		return user;
 	}
 
-	public void setUser(Usuario[] user) {
+	public void setUser(ArrayList<Usuario> user) {
 		this.user = user;
 	}
 	public void addUser(Usuario usuario) {
-		user[qtdUser] = usuario;
+		user.add(usuario);
 		++qtdUser;
 	}
-	public void remUser(int i) {
-		user[i] = null;
-	}
 	
-	public Ciclo[] getCiclo() {
+	public ArrayList<Ciclo> getCiclo() {
 		return ciclo;
 	}
 
-	public void setCiclo(Ciclo[] ciclo) {
+	public void setCiclo(ArrayList<Ciclo> ciclo) {
 		this.ciclo = ciclo;
 	}
-	public void addCilo(Ciclo ciclo) {
-		this.ciclo[qtdCiclo] = ciclo;
+	public void addCiclo(Ciclo ciclo) {
+		this.ciclo.add(ciclo);
 		++qtdCiclo;
 	}
-	public void remCiclo(int i) {
-		ciclo[i] = null;
-	}
-	public Humor[] getHumor() {
+
+	public ArrayList<Humor> getHumor() {
 		return humor;
 	}
 
-	public void setHumor(Humor[] humor) {
+	public void setHumor(ArrayList<Humor> humor) {
 		this.humor = humor;
 	}
-	
 	public void addHumor(Humor humor) {
-		this.humor[qtdHumor] = humor;
+		this.humor.add(humor);
 		++qtdHumor;
 	}
-	public void remHumor(int i) {
-		humor[i] = null;
-	}
 
-	public Fisico[] getFisico() {
+	public ArrayList<Fisico> getFisico() {
 		return fisico;
 	}
 
-	public void setFisico(Fisico[] fisico) {
+	public void setFisico(ArrayList<Fisico> fisico) {
 		this.fisico = fisico;
 	}
 	public void addFisico(Fisico fisico) {
-		this.fisico[qtdFisico] = fisico;
+		this.fisico.add(fisico);
 		++qtdFisico;
 	}
-	public void remFisico(int i) {
-		fisico[i] = null;
-	}
 
-	public Libido[] getLibido() {
+	public ArrayList<Libido> getLibido() {
 		return libido;
 	}
 
-	public void setLibido(Libido[] libido) {
+	public void setLibido(ArrayList<Libido> libido) {
 		this.libido = libido;
 	}
 	public void addLibido(Libido libido) {
-		this.libido[qtdLibido] = libido;
+		this.libido.add(libido);
 		++qtdLibido;
 	}
 
-	public Secrecao[] getSecrecao() {
+	public ArrayList<Secrecao> getSecrecao() {
 		return secrecao;
 	}
 
-	public void setSecrecao(Secrecao[] secrecao) {
+	public void setSecrecao(ArrayList<Secrecao> secrecao) {
 		this.secrecao = secrecao;
 	}
 	public void addSecrecao(Secrecao secrecao) {
-		this.secrecao[qtdSecrecao] = secrecao;
+		this.secrecao.add(secrecao);
 		++qtdSecrecao;
 	}
 
