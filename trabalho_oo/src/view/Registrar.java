@@ -13,7 +13,6 @@ public class Registrar implements ActionListener{
 	private static JFrame frame;
 	private static JRadioButton sim;
 	private static JRadioButton nao;
-	private static JRadioButton inexistente;
 	private static JRadioButton leve;
 	private static JRadioButton normal;
 	private static JRadioButton forte;
@@ -73,7 +72,6 @@ public class Registrar implements ActionListener{
 		frame.add(durCiclo);
 		
 		JTextField boxCiclo = new JTextField();
-		//boxCiclo.setBounds(217, 50, 20, 15);
 		boxCiclo.setBounds(217, 60, 20, 15);
 		boxCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(boxCiclo);
@@ -101,25 +99,19 @@ public class Registrar implements ActionListener{
     	fluxoMens.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(fluxoMens);
 		
-		inexistente = new JRadioButton("Inexistente");
 		leve = new JRadioButton("Leve");
 		normal = new JRadioButton("Normal");
 		forte = new JRadioButton("Forte");
-		inexistente.setBounds(20, 140, 100, 15);
-		leve.setBounds(20, 160, 100, 15);
-		normal.setBounds(20, 180, 100, 15);
-		forte.setBounds(20, 200, 100, 15);
-		inexistente.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		leve.setBounds(20, 140, 100, 15);
+		normal.setBounds(20, 160, 100, 15);
+		forte.setBounds(20, 180, 100, 15);
 		leve.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		normal.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		forte.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		frame.add(inexistente);
 		frame.add(leve);
 		frame.add(normal);
 		frame.add(forte);
 		
-		inexistente.addActionListener(this);
-		inexistente.setOpaque(false);
 		leve.addActionListener(this);
 		leve.setOpaque(false);
 		normal.addActionListener(this);
@@ -129,7 +121,6 @@ public class Registrar implements ActionListener{
 		
 		ButtonGroup opcoes = new ButtonGroup();
 		opcoes.add(leve);
-		opcoes.add(inexistente);
 		opcoes.add(forte);
 		opcoes.add(normal);
     }

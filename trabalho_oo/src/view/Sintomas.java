@@ -129,6 +129,8 @@ public class Sintomas implements ActionListener{
 		Csintoma.setForeground(new Color(255, 255, 255));
 		Csintoma.setBorder(blackline);
 		Csintoma.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Csintoma.setActionCommand("registrarsintoma");
+		Csintoma.addActionListener(this);
 		
 		Rsintoma.setBounds(230, 60, 120, 20);
 		Rsintoma.setBackground(new Color(108, 70, 117));
@@ -219,6 +221,10 @@ public class Sintomas implements ActionListener{
 		if(e.getActionCommand() == "registrarciclo") {
 			new Registrar();
 			//frame.dispose();
+		}
+		
+		if(e.getActionCommand() == "registrarsintoma") {
+			new RegistrarSint();
 		}
 	}
 	
