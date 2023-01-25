@@ -29,10 +29,10 @@ public class Registrar implements ActionListener{
 		frame.setVisible(true);
 		diaMens();
 		durCiclo();
-//		durMens();
-//		fluxoMens();
-//		btnConfirmar();
-//		btnSair();
+		durMens();
+		fluxoMens();
+		btnConfirmar();
+		btnSair();
 		
 	}
 	
@@ -50,6 +50,8 @@ public class Registrar implements ActionListener{
 		nao.setBounds(70, 30, 55, 15);
 		sim.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		nao.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		frame.add(sim);
+		frame.add(nao);
 		
 		sim.addActionListener(this);
 		sim.setOpaque(false);
@@ -60,19 +62,17 @@ public class Registrar implements ActionListener{
 		opcoes.add(nao);
 		opcoes.add(sim);
 		
-		frame.add(sim);
-		frame.add(nao);
 	}
 	
 	public void durCiclo() {
 		
 		JLabel durCiclo = new JLabel("Qual a duração do seu Ciclo?");
-		durCiclo.setBounds(20, 70, 250, 15);
+		durCiclo.setBounds(20, 60, 250, 15);
 		durCiclo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(durCiclo);
 		
 		JTextField boxCiclo = new JTextField();
-		boxCiclo.setBounds(217, 70, 20, 15);
+		boxCiclo.setBounds(217, 60, 20, 15);
 		boxCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(boxCiclo);
 		
@@ -137,15 +137,16 @@ public class Registrar implements ActionListener{
 	}
 	
 	public void btnConfirmar() {
-		JButton btnSair = new JButton("Confirmar");
-		btnSair.setBounds(220, 300, 80, 20);
-		btnSair.setBackground(new Color(108, 70, 117));
-		btnSair.setForeground(new Color(255, 255, 255));
-		btnSair.setBorder(blackline);
-		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		btnSair.setActionCommand("confirmar");
-		btnSair.addActionListener(this);
-		frame.add(btnSair);
+		
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setBounds(220, 300, 80, 20);
+		btnConfirmar.setBackground(new Color(108, 70, 117));
+		btnConfirmar.setForeground(new Color(255, 255, 255));
+		btnConfirmar.setBorder(blackline);
+		btnConfirmar.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnConfirmar.setActionCommand("confirmar");
+		btnConfirmar.addActionListener(this);
+		frame.add(btnConfirmar);
 	}
 	
 	public static void main(String[] args) {

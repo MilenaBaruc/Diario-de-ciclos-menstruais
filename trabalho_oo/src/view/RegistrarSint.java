@@ -35,14 +35,14 @@ public class RegistrarSint implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
-		btnSair();
-		btnConfirmar();
 		humor();
 		libido();
 		fisico();
 		secrecao();
 		remedio();
 		qualrem();
+		btnSair();
+		btnConfirmar();
 		
 		
 	}
@@ -194,15 +194,16 @@ public class RegistrarSint implements ActionListener{
 	}
 	
 	public void btnConfirmar() {
-		JButton btnSair = new JButton("Confirmar");
-		btnSair.setBounds(220, 300, 80, 20);
-		btnSair.setBackground(new Color(108, 70, 117));
-		btnSair.setForeground(new Color(255, 255, 255));
-		btnSair.setBorder(blackline);
-		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		btnSair.setActionCommand("confirmar");
-		btnSair.addActionListener(this);
-		frame.add(btnSair);
+		
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setBounds(220, 300, 80, 20);
+		btnConfirmar.setBackground(new Color(108, 70, 117));
+		btnConfirmar.setForeground(new Color(255, 255, 255));
+		btnConfirmar.setBorder(blackline);
+		btnConfirmar.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnConfirmar.setActionCommand("confirmar");
+		btnConfirmar.addActionListener(this);
+		frame.add(btnConfirmar);
 	}
 	
     @Override
