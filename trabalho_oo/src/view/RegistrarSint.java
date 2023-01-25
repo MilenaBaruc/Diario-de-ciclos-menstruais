@@ -4,16 +4,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class RegistrarSint implements ActionListener{
 	
 	private static JFrame frame;
+	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	private static JRadioButton relcompar;
 	private static JRadioButton relsempar;
 	private static JRadioButton sim;
@@ -30,13 +34,16 @@ public class RegistrarSint implements ActionListener{
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		btnSair();
+		btnConfirmar();
 		humor();
 		libido();
 		fisico();
 		secrecao();
 		remedio();
 		qualrem();
-		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		
 		
 	}
  
@@ -69,7 +76,7 @@ public class RegistrarSint implements ActionListener{
 		frame.add(libido);
 		
 		relcompar = new JRadioButton("Relações com parceiro");
-		relsempar = new JRadioButton("Relações som parceiro");
+		relsempar = new JRadioButton("Relações sem parceiro");
 		relcompar.setBounds(20, 90, 150, 15);
 		relsempar.setBounds(150, 90, 150, 15);
 		relcompar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -174,10 +181,40 @@ public class RegistrarSint implements ActionListener{
 		
 	}
 	
+	public void btnSair() {
+		JButton btnSair = new JButton("Voltar");
+		btnSair.setBounds(80, 300, 80, 20);
+		btnSair.setBackground(new Color(108, 70, 117));
+		btnSair.setForeground(new Color(255, 255, 255));
+		btnSair.setBorder(blackline);
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnSair.setActionCommand("voltar");
+		btnSair.addActionListener(this);
+		frame.add(btnSair);
+	}
+	
+	public void btnConfirmar() {
+		JButton btnSair = new JButton("Confirmar");
+		btnSair.setBounds(220, 300, 80, 20);
+		btnSair.setBackground(new Color(108, 70, 117));
+		btnSair.setForeground(new Color(255, 255, 255));
+		btnSair.setBorder(blackline);
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnSair.setActionCommand("confirmar");
+		btnSair.addActionListener(this);
+		frame.add(btnSair);
+	}
+	
     @Override
     public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
-    	
+    	if("voltar" == e.getActionCommand()) {
+			new Sintomas();
+			frame.dispose();
+		}
+    	if("confirmar" == e.getActionCommand()) {
+			frame.dispose();
+		}
     	if(simrem.isSelected() == true) {
     		qualrem.setVisible(true);
     		boxqualrem.setVisible(true);

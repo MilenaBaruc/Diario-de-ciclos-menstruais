@@ -7,10 +7,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Registrar implements ActionListener{
 	
 	private static JFrame frame;
+	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	private static JRadioButton sim;
 	private static JRadioButton nao;
 	private static JRadioButton leve;
@@ -23,20 +25,17 @@ public class Registrar implements ActionListener{
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-		fluxoMens();
-		durMens();
-		durCiclo();
-		diaMens();
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		frame.setVisible(true);
+		diaMens();
+		durCiclo();
+//		durMens();
+//		fluxoMens();
+//		btnConfirmar();
+//		btnSair();
 		
 	}
 	
-	public static void main(String[] args) {
-		
-		new Registrar();
-		
-	}
 	
 	public void diaMens() {
 		
@@ -51,8 +50,6 @@ public class Registrar implements ActionListener{
 		nao.setBounds(70, 30, 55, 15);
 		sim.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		nao.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		frame.add(sim);
-		frame.add(nao);
 		
 		sim.addActionListener(this);
 		sim.setOpaque(false);
@@ -62,17 +59,20 @@ public class Registrar implements ActionListener{
 		ButtonGroup opcoes = new ButtonGroup();
 		opcoes.add(nao);
 		opcoes.add(sim);
+		
+		frame.add(sim);
+		frame.add(nao);
 	}
 	
 	public void durCiclo() {
 		
 		JLabel durCiclo = new JLabel("Qual a duração do seu Ciclo?");
-		durCiclo.setBounds(20, 60, 250, 15);
+		durCiclo.setBounds(20, 70, 250, 15);
 		durCiclo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(durCiclo);
 		
 		JTextField boxCiclo = new JTextField();
-		boxCiclo.setBounds(217, 60, 20, 15);
+		boxCiclo.setBounds(217, 70, 20, 15);
 		boxCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.add(boxCiclo);
 		
@@ -124,11 +124,47 @@ public class Registrar implements ActionListener{
 		opcoes.add(forte);
 		opcoes.add(normal);
     }
+    public void btnSair() {
+		JButton btnSair = new JButton("Voltar");
+		btnSair.setBounds(80, 300, 80, 20);
+		btnSair.setBackground(new Color(108, 70, 117));
+		btnSair.setForeground(new Color(255, 255, 255));
+		btnSair.setBorder(blackline);
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnSair.setActionCommand("voltar");
+		btnSair.addActionListener(this);
+		frame.add(btnSair);
+	}
+	
+	public void btnConfirmar() {
+		JButton btnSair = new JButton("Confirmar");
+		btnSair.setBounds(220, 300, 80, 20);
+		btnSair.setBackground(new Color(108, 70, 117));
+		btnSair.setForeground(new Color(255, 255, 255));
+		btnSair.setBorder(blackline);
+		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnSair.setActionCommand("confirmar");
+		btnSair.addActionListener(this);
+		frame.add(btnSair);
+	}
+	
+	public static void main(String[] args) {
+		
+		new Registrar();
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if("voltar" == e.getActionCommand()) {
+			new Sintomas();
+			frame.dispose();
+		}
+    	if("confirmar" == e.getActionCommand()) {
+			frame.dispose();
+		}
+    	
 	}
 	
 	

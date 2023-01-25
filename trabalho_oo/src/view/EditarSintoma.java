@@ -19,8 +19,8 @@ private static JFrame frame;
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		sintedit();
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		sintedit();
 		
 	}
 	

@@ -17,8 +17,8 @@ public class VerCiclo implements ActionListener{
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		ciclosPass();
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		ciclosPass();
 		
 	}
 	
