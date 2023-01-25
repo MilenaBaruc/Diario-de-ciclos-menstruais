@@ -90,18 +90,24 @@ public class Sintomas implements ActionListener{
 		Rciclo.setForeground(new Color(255, 255, 255));
 		Rciclo.setBorder(blackline);
 		Rciclo.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Rciclo.setActionCommand("verciclo");
+		Rciclo.addActionListener(this);
 		
 		Uciclo.setBounds(370, 60, 120, 20);
 		Uciclo.setBackground(new Color(108, 70, 117));
 		Uciclo.setForeground(new Color(255, 255, 255));
 		Uciclo.setBorder(blackline);
 		Uciclo.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Uciclo.setActionCommand("editarciclo");
+		Uciclo.addActionListener(this);
 		
 		Dciclo.setBounds(510, 60, 120, 20);
 		Dciclo.setBackground(new Color(108, 70, 117));
 		Dciclo.setForeground(new Color(255, 255, 255));
 		Dciclo.setBorder(blackline);
 		Dciclo.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Dciclo.setActionCommand("excluirciclo");
+		Dciclo.addActionListener(this);
 		
 		painelCiclo.add(ciclo); painelCiclo.add(Cciclo); painelCiclo.add(Rciclo); painelCiclo.add(Uciclo); painelCiclo.add(Dciclo);
 		frame.add(painelCiclo);
@@ -137,18 +143,24 @@ public class Sintomas implements ActionListener{
 		Rsintoma.setForeground(new Color(255, 255, 255));
 		Rsintoma.setBorder(blackline);
 		Rsintoma.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Rsintoma.setActionCommand("versintoma");
+		Rsintoma.addActionListener(this);
 		
 		Usintoma.setBounds(370, 60, 120, 20);
 		Usintoma.setBackground(new Color(108, 70, 117));
 		Usintoma.setForeground(new Color(255, 255, 255));
 		Usintoma.setBorder(blackline);
 		Usintoma.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Usintoma.setActionCommand("editarsintoma");
+		Usintoma.addActionListener(this);
 		
 		Dsintoma.setBounds(510, 60, 120, 20);
 		Dsintoma.setBackground(new Color(108, 70, 117));
 		Dsintoma.setForeground(new Color(255, 255, 255));
 		Dsintoma.setBorder(blackline);
 		Dsintoma.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		Dsintoma.setActionCommand("excluirsintoma");
+		Dsintoma.addActionListener(this);
 		
 		painelSintoma.add(sintoma); painelSintoma.add(Csintoma); painelSintoma.add(Rsintoma); painelSintoma.add(Usintoma); painelSintoma.add(Dsintoma);
 		frame.add(painelSintoma);
@@ -225,6 +237,33 @@ public class Sintomas implements ActionListener{
 		
 		if(e.getActionCommand() == "registrarsintoma") {
 			new RegistrarSint();
+		}
+		
+		if(e.getActionCommand() == "verciclo") {
+			new VerCiclo();
+			//frame.dispose();
+		}
+		
+		if(e.getActionCommand() == "versintoma") {
+			new VerSintoma();
+			//frame.dispose();
+		}
+		
+		if(e.getActionCommand() == "editarciclo") {
+			new Registrar();
+			//frame.dispose();
+		}
+		
+		if(e.getActionCommand() == "editarsintoma") {
+			new RegistrarSint();
+		}
+		
+		if(e.getActionCommand() == "excluirciclo") {
+			new EditarCiclo();
+		}
+		
+		if(e.getActionCommand() == "excluirsintoma") {
+			new EditarSintoma();
 		}
 	}
 	
