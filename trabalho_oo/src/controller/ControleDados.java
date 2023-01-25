@@ -18,6 +18,9 @@ public class ControleDados {
 	public Usuario[] getUsuario() {
 		return dados.getUser();
 	}
+	public void remUser(int i) {
+		
+	}
 	public Ciclo[] getCiclo() {
 		return dados.getCiclo();
 	}
