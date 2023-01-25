@@ -1,6 +1,7 @@
 package view;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,21 +12,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-public class VerCiclo implements ActionListener{
+public class ExcluirSint implements ActionListener{
 	
-	private static JFrame frame;
-	public Border blackline = BorderFactory.createLineBorder(Color.black);
+    private static JFrame frame;
+    public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
 	
-    public VerCiclo(){
+    public ExcluirSint(){
 		
-		frame = new JFrame("Ver Ciclos");
+		frame = new JFrame("Excluir Sintoma");
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
-		ciclosPass();
+		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		sintedit();
 		painel();
 		btnSair();
 		btnConfirmar();
@@ -35,20 +36,20 @@ public class VerCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new VerCiclo();
+		new ExcluirSint();
 		
 	}
 	
-	public void ciclosPass() {
+	public void sintedit() {
 		
-		JLabel ciclosPass = new JLabel("Ciclos Passados:");
-		ciclosPass.setBounds(20, 20, 250, 15);
-		ciclosPass.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		frame.add(ciclosPass);
+		JLabel sintedit = new JLabel("Excluir sintomas:");
+		sintedit.setBounds(20, 20, 250, 15);
+		sintedit.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		frame.add(sintedit);
 		
 	}
-	
-    public void painel() {
+
+	public void painel() {
 		
 		JPanel painel = new JPanel();
 		
@@ -98,7 +99,6 @@ public class VerCiclo implements ActionListener{
     	if("confirmar" == e.getActionCommand()) {
 			frame.dispose();
 		}
-    	
+		
 	}
-
 }

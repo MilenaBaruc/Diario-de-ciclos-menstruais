@@ -24,12 +24,13 @@ public class VerSintoma implements ActionListener{
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+		frame.setLayout(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		sintomasPass();
 		painel();
 		btnSair();
 		btnConfirmar();
+		frame.setVisible(true);
 		
 	}
 	
@@ -92,7 +93,7 @@ public class VerSintoma implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new Sintomas();
+			new AdicionarInfo();
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

@@ -112,7 +112,7 @@ public class Principal implements ActionListener{
 			new Configuracoes();
 		}
 		if("Add Sintoma" == e.getActionCommand()) {
-			new Sintomas();
+			new AdicionarInfo();
 			frame.dispose();
 		}
 		if("sair" == e.getActionCommand()) {
