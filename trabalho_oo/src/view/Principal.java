@@ -16,10 +16,11 @@ public class Principal implements ActionListener{
 	
 	private JButton btnAddSint;
 	private static JFrame frame;
-	private JPanel painelSint;
+	//private JPanel painelSint;
 	private JButton btnConfig;
-	private JLabel nomeLabel;
+	//private JLabel nomeLabel;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
+	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
 	
 	
 	Principal(){
@@ -29,7 +30,7 @@ public class Principal implements ActionListener{
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		background();
-		//painelSint();
+		painelSint();
 		btnAddSint();
 		btnConfig();
 		btnSair();
@@ -86,6 +87,20 @@ public class Principal implements ActionListener{
 		frame.add(painelSint);
 	}*/
 	
+	public void painelSint() {
+		
+        JPanel painelSint = new JPanel();
+		
+		painelSint.setBounds(40, 70, 720, 400);
+		painelSint.setBackground(new Color(255, 215, 249));
+		painelSint.setOpaque(true);
+		painelSint.setBorder(raisedbevel);
+		painelSint.setLayout(null);
+		
+		frame.add(painelSint);
+		
+	}
+	
 	public void btnSair() {
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBounds(20, 20, 80, 20);
@@ -98,9 +113,9 @@ public class Principal implements ActionListener{
 		frame.add(btnSair);
 	}
 	
-	public void nomeLabel() {
+	/*public void nomeLabel() {
 		nomeLabel = new JLabel();
-	}
+	}*/
 
 	public static void main(String[] args) {
 		new Principal();
