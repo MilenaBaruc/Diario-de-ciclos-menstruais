@@ -6,8 +6,8 @@ import enumeradores.Textura;
 public class Secrecao extends Sintoma {
 	private Textura textura;
 
-	public Secrecao(Intensidade intensidade, String descricao, String Nomesintoma, Textura textura) {
-		super(intensidade, descricao, Nomesintoma);
+	public Secrecao(Intensidade intensidade, String descricao, String Nomesintoma, Textura textura, String data) {
+		super(intensidade, descricao, Nomesintoma, data);
 		this.textura = textura;
 	}
 	
@@ -27,7 +27,8 @@ public class Secrecao extends Sintoma {
 				+ "   textura = " + textura + "\n"
 				+ "   intensidade = " + getIntensidade() + "\n" 
 				+ "   descricao = " + getDescricao() + "\n"
-				+ "   sintoma = " + getNomeSintoma();
+				+ "   sintoma = " + getNomeSintoma()+ "\n"
+						+ "   data = " + getData();
 	}
 	
 	

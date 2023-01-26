@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import enumeradores.Humores;
 import enumeradores.Intensidade;
+import enumeradores.Textura;
 import modelo.Ciclo;
 import modelo.Dados;
 import modelo.Fisico;
@@ -97,6 +98,7 @@ public class ControleDados {
 			return false;
 		} else {
 			Ciclo novo = new Ciclo(dia, duracao, menstruacao, fluxo, data);
+			dados.setQtdCiclo(getQtdCiclo() + 1);
 			dados.addCiclo(novo);
 			return true;
 		}
@@ -150,11 +152,12 @@ public class ControleDados {
 				++count;
 			}
 		}
-		if (count == 1) {
+		if (count >= 1) {
 			return false;
 		} else {
 			Humor novoHumor = new Humor(intensidade, descricao, nomeS, gatilho, humor, data);
 			dados.addHumor(novoHumor);
+			dados.setQtdHumor(getQtdHumor() + 1);
 			return true;
 		}
 	}
@@ -164,6 +167,7 @@ public class ControleDados {
 		for (int j = 0; j < dados.getQtdHumor(); ++j) {
 			if (dados.getHumor().get(j).getData().equals(dataN)) {
 				dados.getHumor().remove(i);
+				dados.setQtdHumor(getQtdHumor() - 1);
 				return true;
 			}
 		}
@@ -181,7 +185,6 @@ public class ControleDados {
 				dados.getHumor().get(j).setGatilho(gatilho);
 				dados.getHumor().get(j).setIntensidade(intensidade);
 				dados.getHumor().get(j).setHumor(humor);
-
 				return true;
 			}
 		}
@@ -201,20 +204,22 @@ public class ControleDados {
 				++count;
 			}
 		}
-		if (count == 1) {
+		if (count >= 1) {
 			return false;
 		} else {
 			Fisico novoFisico = new Fisico(intensidade, descricao, Nomesintoma, pratica, remedioTomado, data);
 			dados.addFisico(novoFisico);
+			dados.setQtdFisico(getQtdFisico() + 1);
 			return true;
 		}
 	}
 
 	public boolean remFisico(int i) {
 		String dataN = dados.getFisico().get(i).getData();
-		for(int j = 0; j < dados.getQtdFisico(); ++j) {
-			if(dados.getFisico().get(j).getData().equals(dataN)) {
+		for (int j = 0; j < dados.getQtdFisico(); ++j) {
+			if (dados.getFisico().get(j).getData().equals(dataN)) {
 				dados.getFisico().remove(j);
+				dados.setQtdFisico(getQtdFisico() - 1);
 				return true;
 			}
 		}
@@ -223,10 +228,10 @@ public class ControleDados {
 
 	public boolean editarFisico(int i, Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica,
 			String remedioTomado, String data) {
-		
+
 		String nomeSint = dados.getFisico().get(i).getNomeSintoma();
-		for(int j = 0; j < dados.getQtdFisico(); ++j) {
-			if(dados.getFisico().get(j).getNomeSintoma().equals(nomeSint)) {
+		for (int j = 0; j < dados.getQtdFisico(); ++j) {
+			if (dados.getFisico().get(j).getNomeSintoma().equals(nomeSint)) {
 				dados.getFisico().get(j).setData(data);
 				dados.getFisico().get(j).setDescricao(descricao);
 				dados.getFisico().get(j).setIntensidade(intensidade);
@@ -234,6 +239,108 @@ public class ControleDados {
 				dados.getFisico().get(j).setPratica(pratica);
 				dados.getFisico().get(j).setRemedioTomado(remedioTomado);
 				return true;
+			}
+		}
+		return false;
+	}
+
+	/*
+	 * crud sintomas 3° Libido
+	 * 
+	 */
+
+	public boolean addLibido(int i, Intensidade intensidade, String descricao, String NomeSintoma,
+			boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
+		int count = 0;
+		for (int j = 0; j < getQtdLibido(); ++j) {
+			if (dados.getLibido().get(j).getData().equals(data)) {
+				count++;
+			}
+		}
+		if (count >= 1) {
+			return false;
+		} else {
+			Libido libido = new Libido(intensidade, descricao, NomeSintoma, relacoesComParceiro, relacoesSemParceiro,
+					data);
+			dados.addLibido(libido);
+			dados.setQtdLibido(getQtdLibido() + 1);
+			return true;
+		}
+
+	}
+
+	public boolean remLibido(int i) {
+		String data = dados.getLibido().get(i).getData();
+		for (int j = 0; j < getQtdLibido(); ++j) {
+			if (dados.getLibido().get(j).getData().equals(data)) {
+				dados.getLibido().remove(j);
+				dados.setQtdLibido(getQtdLibido() - 1);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean editarLibido(int i, Intensidade intensidade, String descricao, String NomeSintoma,
+			boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
+		String nomeS = dados.getLibido().get(i).getNomeSintoma();
+		for (int j = 0; j < dados.getQtdLibido(); ++j) {
+			if (dados.getLibido().get(j).getNomeSintoma().equals(nomeS)) {
+				dados.getLibido().get(j).setIntensidade(intensidade);
+				dados.getLibido().get(j).setData(data);
+				dados.getLibido().get(j).setDescricao(descricao);
+				dados.getLibido().get(j).setNomeSintoma(NomeSintoma);
+				dados.getLibido().get(j).setRelacoesComParceiro(relacoesComParceiro);
+				dados.getLibido().get(j).setRelacoesSemParceiro(relacoesSemParceiro);
+				return true;
+			}
+		}
+		return false;
+	}
+	/*
+	 * crud Sintomas 4° Secrecao
+	 * 
+	 */
+
+	public boolean addSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
+			String data) {
+			int count = 0;
+			for(int j = 0; j < dados.getQtdSecrecao(); ++j) {
+				if(dados.getSecrecao().get(j).getData().equals(data)) {
+					++count;
+				}
+			}
+			if(count >= 1) {
+				return false;
+			} else {
+				Secrecao secrecao = new Secrecao(intensidade, descricao, Nomesintoma, textura, data);
+				dados.addSecrecao(secrecao);
+				dados.setQtdSecrecao(getQtdSecrecao() + 1);
+				return true;
+			}
+	}
+
+	public boolean remSecrecao(int i) {
+		String dataN = dados.getSecrecao().get(i).getData();
+		for (int j = 0; j < dados.getQtdSecrecao(); ++j) {
+			if (dados.getSecrecao().get(j).getData().equals(dataN)) {
+				dados.getSecrecao().remove(j);
+				dados.setQtdSecrecao(getQtdSecrecao() - 1);
+			}
+		}
+		return false;
+	}
+
+	public boolean editarSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
+			String data) {
+		String nomeS = dados.getSecrecao().get(i).getNomeSintoma();
+		for (int j = 0; j < dados.getQtdSecrecao(); ++j) {
+			if (dados.getSecrecao().get(j).getNomeSintoma().equals(nomeS)) {
+				dados.getSecrecao().get(j).setData(data);
+				dados.getSecrecao().get(j).setDescricao(descricao);
+				dados.getSecrecao().get(j).setIntensidade(intensidade);
+				dados.getSecrecao().get(j).setNomeSintoma(Nomesintoma);
+				dados.getSecrecao().get(j).setTextura(textura);
 			}
 		}
 		return false;

@@ -30,8 +30,8 @@ public class Dados {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
 			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/1202");
 			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", Humores.ALEGRE, "12/12/1222");
-			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", Textura.AQUOSA);
-			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true);
+			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", Textura.AQUOSA, "12/12/1222");
+			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true, "12/12/1222");
 			Fisico fisico = new Fisico(Intensidade.FORTE, "dor no u" + i, "dor", false, "dorflex", "12/12/1221");
 		
 		

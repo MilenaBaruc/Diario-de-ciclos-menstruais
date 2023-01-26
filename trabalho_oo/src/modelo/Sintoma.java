@@ -6,13 +6,15 @@ public abstract class Sintoma {
 	private Intensidade intensidade;
 	private String descricao;
 	private String nomeSintoma;
+	private String data;
 	
 	public Sintoma() {}
 	
-	public Sintoma(Intensidade intensidade, String descricao, String sintoma) {
+	public Sintoma(Intensidade intensidade, String descricao, String sintoma, String data) {
 		this.intensidade = intensidade;
 		this.descricao = descricao;
 		this.nomeSintoma = sintoma;
+		this.data = data;
 	}
 
 	public Intensidade getIntensidade() {
@@ -38,10 +40,19 @@ public abstract class Sintoma {
 	public void setNomeSintoma(String sintoma) {
 		this.nomeSintoma = sintoma;
 	}
+	
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
 
 	@Override
 	public String toString() {
-		return "Sintoma [intensidade=" + intensidade + ", descricao=" + descricao + ", nomeSintoma=" + nomeSintoma + "]";
+		return "Sintoma [intensidade=" + intensidade + ", descricao=" + descricao + ", nomeSintoma=" + nomeSintoma + "data: " + data + "]";
 	}
 
 }

@@ -6,10 +6,9 @@ import enumeradores.Intensidade;
 public class Humor extends Sintoma {
 	private String gatilho;
 	private Humores humor;
-	private String data;
 
 	public Humor(Intensidade intensidade, String descricao, String NomeSintoma, String gatilho, Humores humor, String data) {
-		super(intensidade, descricao, NomeSintoma);
+		super(intensidade, descricao, NomeSintoma, data);
 		this.gatilho = gatilho;
 		this.humor = humor;
 	}
@@ -33,13 +32,6 @@ public class Humor extends Sintoma {
 		this.humor = humor;
 	}
 
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
 
 	@Override
 	public String toString() {
@@ -48,7 +40,8 @@ public class Humor extends Sintoma {
 				+ "   humor = " + humor + "\n"
 				+ "   intensidade = " + getIntensidade() + "\n" 
 				+ "   descricao = " + getDescricao() + "\n"
-				+ "   sintoma = " + getNomeSintoma();
+				+ "   sintoma = " + getNomeSintoma()+ "\n"
+				+ "   data = " + getData();
 	}
 	
 	

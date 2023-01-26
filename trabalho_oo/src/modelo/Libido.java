@@ -6,8 +6,8 @@ public class Libido extends Sintoma{
 	private boolean relacoesComParceiro;
 	private boolean relacoesSemParceiro;
 	
-	public Libido(Intensidade intensidade, String descricao, String NomeSintoma, boolean relacoesComParceiro, boolean relacoesSemParceiro) {
-		super(intensidade, descricao, NomeSintoma);
+	public Libido(Intensidade intensidade, String descricao, String NomeSintoma, boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
+		super(intensidade, descricao, NomeSintoma, data);
 		this.relacoesComParceiro = relacoesComParceiro;
 		this.relacoesSemParceiro = relacoesSemParceiro;
 	}
@@ -37,7 +37,8 @@ public class Libido extends Sintoma{
 				+"   relacoesSemParceiro = " + relacoesSemParceiro + "\n"
 				+"   intensidade = " + getIntensidade() + "\n"
 				+"   descricao = " + getDescricao() + "\n" 
-				+"   sintoma = " + getNomeSintoma();
+				+"   sintoma = " + getNomeSintoma()+ "\n"
+				+ "   data = " + getData();
 	}
 	
 	
