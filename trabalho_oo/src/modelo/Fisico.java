@@ -14,9 +14,11 @@ public class Fisico extends Sintoma {
 		this.remedioTomado = remedioTomado;
 	}
 
+	
 	public Fisico() {
-		super();
+		// TODO Auto-generated constructor stub
 	}
+
 
 	public boolean getPratica() {
 		return pratica;
