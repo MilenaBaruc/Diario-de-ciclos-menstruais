@@ -6,8 +6,9 @@ public class Fisico extends Sintoma {
 
 	private boolean pratica;
 	private String remedioTomado;
+	private String Data;
 
-	public Fisico(Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica, String remedioTomado) {
+	public Fisico(Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica, String remedioTomado, String data) {
 		super(intensidade, descricao, Nomesintoma);
 		this.pratica = pratica;
 		this.remedioTomado = remedioTomado;
@@ -41,6 +42,14 @@ public class Fisico extends Sintoma {
 				+ "   intensidade = " + getIntensidade() + "\n"
 				+ "   descricao = " + getDescricao() + "\n" 
 				+ "   sintoma = " + getNomeSintoma();
+	}
+
+	public String getData() {
+		return Data;
+	}
+
+	public void setData(String data) {
+		Data = data;
 	}
 	
 
