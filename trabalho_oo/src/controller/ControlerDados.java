@@ -91,11 +91,11 @@ public class ControlerDados {
 		return false;
 	}
 
-	public boolean editarCiclo(int i, Boolean dia, int duracaoC, int duracaoM, Intensidade intensidade, String data) {
+	public boolean editarCiclo(int i, boolean dia, int duracaoC, int duracaoM, Intensidade intensidade, String data) {
 		String dataN = dados.getCiclo().get(i).getData();
 		for (int j = 0; j < dados.getCiclo().size(); ++j) {
 			if (dados.getCiclo().get(j).getData().equals(dataN)) {
-
+				dados.getCiclo().get(j).setData(data);
 				dados.getCiclo().get(j).setDiaMenstruada(dia);
 				dados.getCiclo().get(j).setDuracaoCiclo(duracaoC);
 				dados.getCiclo().get(j).setDuracaoMesntruacao(duracaoM);

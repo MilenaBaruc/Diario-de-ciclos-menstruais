@@ -46,7 +46,12 @@ public class EditCiclo implements ActionListener{
 	int durMens;
 	Intensidade intensidade;
 	
-	public EditCiclo(ControlerDados dados){
+	public EditCiclo(ControlerDados dados, int i, String data, boolean mens, int durCiclo, int durMens, Intensidade intensidade){
+		this.data = data;
+		this.mens = mens;
+		this.durCiclo = durCiclo;
+		this.durMens = durMens;
+		this.intensidade = intensidade;
 		
 		frame = new JFrame("Editar Ciclo");
 		frame.setSize(400, 400);
@@ -70,9 +75,36 @@ public class EditCiclo implements ActionListener{
 		
 	}
 	
-	
+	public EditCiclo(ControlerDados dados) {
+		this.data = data;
+		this.mens = mens;
+		this.durCiclo = durCiclo;
+		this.durMens = durMens;
+		this.intensidade = intensidade;
+		
+		frame = new JFrame("Editar Ciclo");
+		frame.setSize(400, 400);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(null);
+		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		
+		this.dados = dados;
+		dadosCiclo = new ControlerCiclo(dados);
+		cicloData = new JList(dadosCiclo.getCicloData());
+		
+		dataCiclo();
+		diaMens();
+		durCiclo();
+		durMens();
+		fluxoMens();
+		btnConfirmar();
+		btnSair();
+		frame.setVisible(true);
+	}
+
 	public void dataCiclo() {
-		JLabel data = new JLabel("Data de inicio:");
+		JLabel dataLabel = new JLabel("Data de inicio:");
 
 		MaskFormatter maskData = null;
 		try {
@@ -83,11 +115,11 @@ public class EditCiclo implements ActionListener{
 		}
 		dataField = new JFormattedTextField(maskData);
 
-		data.setBounds(20, 10, 90, 20);
+		dataLabel.setBounds(20, 10, 90, 20);
 		dataField.setBounds(110, 10, 60, 20);
-
+		dataField.setText(data);
 		frame.add(dataField);
-		frame.add(data);
+		frame.add(dataLabel);
 
 	}
 
@@ -109,6 +141,12 @@ public class EditCiclo implements ActionListener{
 		nao.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		nao.addActionListener(this);
 		nao.setOpaque(false);
+		
+		if(mens == true) {
+			sim.setSelected(true);
+		} else if(mens == false){
+			nao.setSelected(true);
+		}
 
 		frame.add(sim);
 		frame.add(nao);
@@ -129,6 +167,7 @@ public class EditCiclo implements ActionListener{
 
 		boxCiclo.setBounds(217, 105, 30, 15);
 		boxCiclo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		boxCiclo.setText(Integer.toString(this.durCiclo));
 
 		frame.add(durCiclo);
 		frame.add(boxCiclo);
@@ -145,6 +184,7 @@ public class EditCiclo implements ActionListener{
 
 		boxMens.setBounds(277, 135, 30, 15);
 		boxMens.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		boxMens.setText(Integer.toString(this.durMens));
 
 		frame.add(boxMens);
 		frame.add(durMens);
@@ -175,6 +215,23 @@ public class EditCiclo implements ActionListener{
 		forte.addActionListener(this);
 		forte.setOpaque(false);
 
+		switch(this.intensidade) {
+		case LEVE: 
+			leve.setSelected(true);
+			break;
+		case NORMAL: 
+			normal.setSelected(true);
+			break;
+		case FORTE: 
+			forte.setSelected(true);
+		default:
+			leve.setSelected(false);
+			normal.setSelected(false);
+			forte.setSelected(false);
+			break;
+		}
+		
+		
 		frame.add(leve);
 		frame.add(normal);
 		frame.add(forte);
@@ -211,11 +268,6 @@ public class EditCiclo implements ActionListener{
 		frame.add(btnConfirmar);
 	}
 	
-	public static void main(String[] args) {
-		
-		new EditCiclo(dados);
-		
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -225,6 +277,16 @@ public class EditCiclo implements ActionListener{
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
+    		
+    		if(sim.isSelected()) {
+    			mens = true;
+    		} else {
+    			mens = false;
+    		}
+    		
+    		durCiclo = Integer.parseInt(boxCiclo.getText());
+    		durMens = Integer.parseInt(boxMens.getText());
+    		
     		if (leve.isSelected()) {
 				intensidade = Intensidade.LEVE;
 			} else if (normal.isSelected()) {
@@ -232,18 +294,9 @@ public class EditCiclo implements ActionListener{
 			} else {
 				intensidade = Intensidade.FORTE;
 			}
-
-			if (sim.isSelected()) {
-				mens = true;
-			} else {
-				mens = false;
-			}
-
-			data = dataField.getText();
-			durCiclo = Integer.parseInt(boxCiclo.getText());
-			durMens = Integer.parseInt(boxMens.getText());
-			dados.editarCiclo(i, mens, durCiclo, durMens, intensidade, data);
-			System.out.print("editado");
+    		
+    		data = dataField.getText();
+    		dados.editarCiclo(i, mens, durCiclo, durMens, intensidade, data);
 			frame.dispose();
 		}
     	

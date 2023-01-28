@@ -15,62 +15,65 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controller.ControlerCiclo;
 import controller.ControlerDados;
 
-public class EscolherCiclo implements ActionListener{
-	
-    private JFrame frame;
-    public Border blackline = BorderFactory.createLineBorder(Color.black);
-    public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-    private JTable listaCiclo;
-    private static ControlerDados dados;
-    private ControlerCiclo dadosCiclo;
+public class EscolherCiclo implements ActionListener {
+
+	private JFrame frame;
+	public Border blackline = BorderFactory.createLineBorder(Color.black);
+	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+	private JTable listaCiclo;
+	private static ControlerDados dados;
+	private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private JScrollPane cicloDataScroll;
+	private String dataLida;
 	private int i;
-	
-    public EscolherCiclo(ControlerDados dados){
-		
+
+	public EscolherCiclo(ControlerDados dados) {
+
 		frame = new JFrame("Escolha");
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
-		
-		
+
 		this.dados = dados;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
-		
 
 		sintedit();
 		painel();
 		btnSair();
 		btnConfirmar();
 		frame.setVisible(true);
-		
+
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		new EscolherCiclo(dados);
-		
+
 	}
-	
+
 	public void sintedit() {
-		
+
 		JLabel sintedit = new JLabel("Selecione o ciclo:");
 		sintedit.setBounds(20, 20, 250, 15);
 		sintedit.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(sintedit);
-		
+
 	}
-	private String[] colunas = {"ciclo", "data"};
+
+	private String[] colunas = { "ciclo", "data" };
+
 	public void painel() {
-		
+
 		JPanel painel = new JPanel();
 		cicloData.setBounds(0, 0, 350, 230);
 		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -80,10 +83,16 @@ public class EscolherCiclo implements ActionListener{
 		cicloData.setOpaque(false);
 		cicloData.setBackground(new Color(255, 255, 255, 0));
 		cicloData.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		
-		
-		
-		
+		cicloData.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				if (!arg0.getValueIsAdjusting()) {
+					dataLida = cicloData.getSelectedValue().toString();
+				}
+			}
+		});
+
 		painel.setBounds(20, 50, 350, 230);
 		painel.setBackground(new Color(255, 215, 249));
 		painel.setOpaque(true);
@@ -91,13 +100,12 @@ public class EscolherCiclo implements ActionListener{
 		painel.setLayout(null);
 		painel.setVisible(true);
 
-		
 		painel.add(cicloData);
 		frame.add(painel);
-		//frame.add(cicloData);
-		
+		// frame.add(cicloData);
+
 	}
-	
+
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");
 		btnSair.setBounds(80, 300, 80, 20);
@@ -109,9 +117,9 @@ public class EscolherCiclo implements ActionListener{
 		btnSair.addActionListener(this);
 		frame.add(btnSair);
 	}
-	
+
 	public void btnConfirmar() {
-		
+
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setBounds(220, 300, 80, 20);
 		btnConfirmar.setBackground(new Color(108, 70, 117));
@@ -126,15 +134,19 @@ public class EscolherCiclo implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-		if("voltar" == e.getActionCommand()) {
+
+		if ("voltar" == e.getActionCommand()) {
 			new AdicionarInfo(dados);
 			frame.dispose();
 		}
-    	if("confirmar" == e.getActionCommand()) {
-    		//cicloData.get
+		if ("confirmar" == e.getActionCommand()) {
+			i = dadosCiclo.getIdxCiclo(dataLida);
+			new EditCiclo(dados, i, dados.getCiclo().get(i).getData(), dados.getCiclo().get(i).getDiaMenstruada(),
+					dados.getCiclo().get(i).getDuracaoCiclo(), dados.getCiclo().get(i).getDuracaoMesntruacao(),
+					dados.getCiclo().get(i).getFluxoMenstrual());
+			;
 			frame.dispose();
 		}
-		
+
 	}
 }
