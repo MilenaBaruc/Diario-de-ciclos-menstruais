@@ -13,6 +13,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controller.ControlerCiclo;
 import controller.ControlerDados;
@@ -26,6 +28,7 @@ public class ExcluirCiclo implements ActionListener{
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private static int i;
+	private String dataLida;
 	
     public ExcluirCiclo(ControlerDados cd){
 		
@@ -75,6 +78,15 @@ public class ExcluirCiclo implements ActionListener{
 		cicloData.setOpaque(false);
 		cicloData.setBackground(new Color(255, 255, 255, 0));
 		cicloData.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		cicloData.addListSelectionListener(new ListSelectionListener() {
+
+            @Override
+            public void valueChanged(ListSelectionEvent arg0) {
+                if (!arg0.getValueIsAdjusting()) {
+                  dataLida = cicloData.getSelectedValue().toString();
+                }
+            }
+        });
 		
 		
 		
@@ -91,6 +103,12 @@ public class ExcluirCiclo implements ActionListener{
 		frame.add(painel);
 	}
 	
+	public void valueChanged(ListSelectionEvent arg0) {
+        if (!arg0.getValueIsAdjusting()) {
+          dataLida = cicloData.getSelectedValue().toString();
+        }
+    }
+
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");
 		btnSair.setBounds(80, 300, 80, 20);
@@ -125,7 +143,9 @@ public class ExcluirCiclo implements ActionListener{
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
-    		dados.remCiclo(i);
+    		dados.remCiclo(dadosCiclo.getIdxCiclo(dataLida));
+    		System.out.print(dataLida);
+    		//dados.remCiclo();
 			frame.dispose();
 		}
 		

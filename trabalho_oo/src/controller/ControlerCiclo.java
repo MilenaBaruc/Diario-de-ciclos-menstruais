@@ -25,7 +25,15 @@ public class ControlerCiclo {
         return data;
     }
 	
-	
+	public int getIdxCiclo(String data) {
+		int idx = 0;
+		for(int i = 0; i < ciclo.size(); ++i) {
+			if(ciclo.get(i).getData().equals(data)) {
+				idx = i;
+			}
+		}
+		return idx;
+	}
 	
 	public boolean getSint(int i) {
 		return ciclo.get(i).getSentiuSintoma();

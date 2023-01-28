@@ -179,51 +179,7 @@ public class AdicionarInfo implements ActionListener{
 		frame.add(painelSintoma);
 	}
 
-	/*public void painelMenstruacao() {
-		JPanel painelMenstruacao = new JPanel();
-		JLabel menstruacao = new JLabel("Adicionar mestruação:");
-		JButton Cmenstruacao = new JButton("Registrar mestruação");
-		JButton Rmenstruacao = new JButton("Ver mestruação");
-		JButton Umenstruacao = new JButton("Editar mestruação");
-		JButton Dmenstruacao = new JButton("Excluir mestruação");
-		
-		painelMenstruacao.setBounds(30, 355, 725, 100);
-		painelMenstruacao.setBackground(new Color(255, 215, 249));
-		painelMenstruacao.setOpaque(true);
-		painelMenstruacao.setBorder(raisedbevel);
-		painelMenstruacao.setLayout(null);
-		
-		menstruacao.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		menstruacao.setBounds(10, 10, 200, 20);
-		
-		Cmenstruacao.setBounds(90, 60, 120, 20);
-		Cmenstruacao.setBackground(new Color(108, 70, 117));
-		Cmenstruacao.setForeground(new Color(255, 255, 255));
-		Cmenstruacao.setBorder(blackline);
-		Cmenstruacao.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		
-		Rmenstruacao.setBounds(230, 60, 120, 20);
-		Rmenstruacao.setBackground(new Color(108, 70, 117));
-		Rmenstruacao.setForeground(new Color(255, 255, 255));
-		Rmenstruacao.setBorder(blackline);
-		Rmenstruacao.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		
-		Umenstruacao.setBounds(370, 60, 120, 20);
-		Umenstruacao.setBackground(new Color(108, 70, 117));
-		Umenstruacao.setForeground(new Color(255, 255, 255));
-		Umenstruacao.setBorder(blackline);
-		Umenstruacao.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		
-		Dmenstruacao.setBounds(510, 60, 120, 20);
-		Dmenstruacao.setBackground(new Color(108, 70, 117));
-		Dmenstruacao.setForeground(new Color(255, 255, 255));
-		Dmenstruacao.setBorder(blackline);
-		Dmenstruacao.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		
-		painelMenstruacao.add(menstruacao); painelMenstruacao.add(Cmenstruacao); painelMenstruacao.add(Rmenstruacao); 
-		painelMenstruacao.add(Umenstruacao); painelMenstruacao.add(Dmenstruacao);
-		frame.add(painelMenstruacao);
-	}*/
+	
 
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");
