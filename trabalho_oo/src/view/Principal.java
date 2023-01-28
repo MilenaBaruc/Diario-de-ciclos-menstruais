@@ -16,12 +16,15 @@ public class Principal implements ActionListener{
 	
 	private JButton btnAddSint;
 	private static JFrame frame;
-	//private JPanel painelSint;
+	private JPanel painelSint;
 	private JButton btnConfig;
-	//private JLabel nomeLabel;
+	private JLabel nomeLabel;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
+	private JList cicloData;
+	private ControlerDados dados;
+	private ControlerCiclo dadosCiclo;
+	private JPanel painelCiclo;
 	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-	
 	
 	Principal(){
 		frame = new JFrame("Lótus");
@@ -29,8 +32,14 @@ public class Principal implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
+		
+		dados = new ControlerDados();
+		dadosCiclo = new ControlerCiclo(dados);
+		cicloData = new JList(dadosCiclo.getCicloData());
+		
 		background();
 		painelSint();
+		painelCiclo();
 		btnAddSint();
 		btnConfig();
 		btnSair();
@@ -57,7 +66,7 @@ public class Principal implements ActionListener{
 		
 		btnAddSint = new JButton("Adicionar Sintomas do Dia");
 		btnAddSint.setActionCommand("Add Sintoma");
-		btnAddSint.setBounds(550, 500, 190, 30);
+		btnAddSint.setBounds(492, 500, 190, 30);
 		btnAddSint.setBackground(new Color(108, 70, 117));
 		btnAddSint.setForeground(new Color(255, 255, 255));
 		btnAddSint.setBorder(blackline);
@@ -69,7 +78,7 @@ public class Principal implements ActionListener{
 	
 	public void btnConfig() {
 		btnConfig = new JButton("Configurações");
-		btnConfig.setBounds(140, 500, 120, 30);
+		btnConfig.setBounds(152, 500, 120, 30);
 		btnConfig.setBackground(new Color(108, 70, 117));
 		btnConfig.setForeground(new Color(255, 255, 255));
 		btnConfig.setBorder(blackline);
@@ -79,26 +88,43 @@ public class Principal implements ActionListener{
 		frame.add(btnConfig);
 	}
 	
-	/*public void painelSint() {
-		painelSint = new JPanel();
-		painelSint.setBackground(new Color(0, 0, 0));
-		painelSint.setBounds(25, 65, 750, 400);
-		painelSint.setVisible(true);
-		frame.add(painelSint);
-	}*/
-	
+	public void painelCiclo() {
+		painelCiclo = new JPanel();
+		JLabel ciclo = new JLabel("Ciclo:");
+		ciclo.setBounds(10, 0, 80, 30);
+		ciclo.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		
+		painelCiclo.setBackground(new Color(255, 215, 249));
+		painelCiclo.setBounds(50, 65, 325, 400);
+		painelCiclo.setLayout(null);
+		painelCiclo.setVisible(true);
+		painelCiclo.setBorder(raisedbevel);
+		painelCiclo.add(ciclo);
+
+		cicloData.setBounds(0, 30, 320, 395);
+		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		cicloData.setOpaque(false);
+		cicloData.setLayoutOrientation(JList.VERTICAL);
+		cicloData.setVisibleRowCount(-1);
+		cicloData.setForeground(Color.black);
+		cicloData.setBackground(new Color(255, 255, 255, 0));
+		cicloData.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		
+		painelCiclo.add(cicloData);
+		frame.add(painelCiclo);
+	}
 	public void painelSint() {
-		
-        JPanel painelSint = new JPanel();
-		
-		painelSint.setBounds(40, 70, 720, 400);
+		painelSint = new JPanel();
+		JLabel sintomas = new JLabel("Sintomas:");
+		sintomas.setBounds(10, 0, 100, 30);
+		sintomas.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		painelSint.setBackground(new Color(255, 215, 249));
-		painelSint.setOpaque(true);
-		painelSint.setBorder(raisedbevel);
+		painelSint.setBounds(425, 65, 325, 400);
 		painelSint.setLayout(null);
-		
+		painelSint.setBorder(raisedbevel);
+		painelSint.setVisible(true);
+		painelSint.add(sintomas);
 		frame.add(painelSint);
-		
 	}
 	
 	public void btnSair() {
@@ -113,9 +139,9 @@ public class Principal implements ActionListener{
 		frame.add(btnSair);
 	}
 	
-	/*public void nomeLabel() {
+	public void nomeLabel() {
 		nomeLabel = new JLabel();
-	}*/
+	}
 
 	public static void main(String[] args) {
 		new Principal();

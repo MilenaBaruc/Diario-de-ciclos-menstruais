@@ -13,22 +13,17 @@ public class Dados {
 	private ArrayList<Fisico> fisico = new ArrayList<Fisico>();
 	private ArrayList<Libido> libido = new ArrayList<Libido>();
 	private ArrayList<Secrecao> secrecao = new ArrayList<Secrecao>();
-	private int qtdUser = 0;
-	private int qtdCiclo = 0;
-	private int qtdHumor = 0;
-	private int qtdFisico = 0;
-	private int qtdLibido = 0;
-	private int qtdSecrecao = 0;
+
 	
 	
 	public Dados() {
-		preencherDados();
+		//preencherDados();
 	}
 	
 	public void preencherDados() {
 		for(int i = 0; i < 5; ++i) {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
-			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/1202");
+			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/200" + i);
 			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", Humores.ALEGRE, "12/12/1222");
 			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", Textura.AQUOSA, "12/12/1222");
 			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true, "12/12/1222");
@@ -42,12 +37,7 @@ public class Dados {
 			this.fisico.add(fisico);
 			this.secrecao.add(secrecao);
 			
-			++qtdCiclo;
-			++qtdFisico;
-			++qtdHumor;
-			++qtdLibido;
-			++qtdSecrecao;
-			++qtdUser;
+			System.out.print(ciclo);
 		}
 	}
 
@@ -61,7 +51,7 @@ public class Dados {
 	}
 	public void addUser(Usuario usuario) {
 		user.add(usuario);
-		++qtdUser;
+		
 	}
 	
 	public ArrayList<Ciclo> getCiclo() {
@@ -73,7 +63,7 @@ public class Dados {
 	}
 	public void addCiclo(Ciclo ciclo) {
 		this.ciclo.add(ciclo);
-		++qtdCiclo;
+		
 	}
 
 	public ArrayList<Humor> getHumor() {
@@ -85,7 +75,7 @@ public class Dados {
 	}
 	public void addHumor(Humor humor) {
 		this.humor.add(humor);
-		++qtdHumor;
+		
 	}
 
 	public ArrayList<Fisico> getFisico() {
@@ -97,7 +87,7 @@ public class Dados {
 	}
 	public void addFisico(Fisico fisico) {
 		this.fisico.add(fisico);
-		++qtdFisico;
+		
 	}
 
 	public ArrayList<Libido> getLibido() {
@@ -109,7 +99,7 @@ public class Dados {
 	}
 	public void addLibido(Libido libido) {
 		this.libido.add(libido);
-		++qtdLibido;
+	
 	}
 
 	public ArrayList<Secrecao> getSecrecao() {
@@ -121,45 +111,8 @@ public class Dados {
 	}
 	public void addSecrecao(Secrecao secrecao) {
 		this.secrecao.add(secrecao);
-		++qtdSecrecao;
 	}
 
-	public int getQtdUser() {
-		return qtdUser;
-	}
-	public void setQtdUser(int qtdUser) {
-		this.qtdUser = qtdUser;
-	}
-	public int getQtdCiclo() {
-		return qtdCiclo;
-	}
-	public void setQtdCiclo(int qtdCiclo) {
-		this.qtdCiclo = qtdCiclo;
-	}
-	public int getQtdHumor() {
-		return qtdHumor;
-	}
-	public void setQtdHumor(int qtdHumor) {
-		this.qtdHumor = qtdHumor;
-	}
-	public int getQtdFisico() {
-		return qtdFisico;
-	}
-	public void setQtdFisico(int qtdFisico) {
-		this.qtdFisico = qtdFisico;
-	}
-	public int getQtdLibido() {
-		return qtdLibido;
-	}
-	public void setQtdLibido(int qtdLibido) {
-		this.qtdLibido = qtdLibido;
-	}
-	public int getQtdSecrecao() {
-		return qtdSecrecao;
-	}
-	public void setQtdSecrecao(int qtdSecrecao) {
-		this.qtdSecrecao = qtdSecrecao;
-	}
 
 	
 	

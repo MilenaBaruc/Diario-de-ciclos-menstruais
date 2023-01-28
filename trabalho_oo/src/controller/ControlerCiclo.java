@@ -9,14 +9,23 @@ public class ControlerCiclo {
 	private ArrayList<Ciclo> ciclo;
 	private int qtdCiclo;
 	
-	public void ControleCiclo(ControlerDados cd) {
+	public ControlerCiclo(ControlerDados cd) {
         this.ciclo = cd.getCiclo();
-        this.setQtdCiclo(cd.getQtdCiclo());
     }
 	
-	public boolean getMens(int i) {
-		return ciclo.get(i).getDiaMenstruada();
-	}
+	public String[] getCicloData() {
+        String[] data = new String[ciclo.size()];
+        for (int i = 0; i < ciclo.size(); ++i) {
+            if (ciclo.get(i).getData() == null) {
+                return data;
+            } else {
+                data[i] = ciclo.get(i).getData();
+            }
+        }
+        return data;
+    }
+	
+	
 	
 	public boolean getSint(int i) {
 		return ciclo.get(i).getSentiuSintoma();

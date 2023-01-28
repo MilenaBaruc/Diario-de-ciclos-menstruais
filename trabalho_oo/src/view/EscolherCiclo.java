@@ -11,35 +11,41 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
 
 import controller.ControlerCiclo;
 import controller.ControlerDados;
 
-public class ExcluirCiclo implements ActionListener{
+public class EscolherCiclo implements ActionListener{
 	
-    private static JFrame frame;
+    private JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+    private JTable listaCiclo;
     private ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
-	private static int i;
+	private JScrollPane cicloDataScroll;
+	private int i;
 	
-    public ExcluirCiclo(ControlerDados cd){
+    public EscolherCiclo(){
 		
-		frame = new JFrame("Excluir Ciclo");
+		frame = new JFrame("Escolha");
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
 		
-		this.dados = dados;
+		
+		dados = new ControlerDados();
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
 		
+
 		sintedit();
 		painel();
 		btnSair();
@@ -50,23 +56,22 @@ public class ExcluirCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new ExcluirCiclo();
+		new EscolherCiclo();
 		
 	}
 	
 	public void sintedit() {
 		
-		JLabel sintedit = new JLabel("Excluir ciclos:");
+		JLabel sintedit = new JLabel("Selecione o ciclo:");
 		sintedit.setBounds(20, 20, 250, 15);
 		sintedit.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(sintedit);
 		
 	}
-	
+	private String[] colunas = {"ciclo", "data"};
 	public void painel() {
 		
 		JPanel painel = new JPanel();
-		
 		cicloData.setBounds(0, 0, 350, 230);
 		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		cicloData.setLayoutOrientation(JList.VERTICAL);
@@ -89,6 +94,8 @@ public class ExcluirCiclo implements ActionListener{
 		
 		painel.add(cicloData);
 		frame.add(painel);
+		//frame.add(cicloData);
+		
 	}
 	
 	public void btnSair() {
@@ -125,7 +132,7 @@ public class ExcluirCiclo implements ActionListener{
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
-    		dados.remCiclo(i);
+    		
 			frame.dispose();
 		}
 		

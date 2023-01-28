@@ -12,7 +12,6 @@ public class ControlerSecrecao {
 
 	public ControlerSecrecao(ControlerDados cd) {
 		this.secrecao = cd.getSecrecao();
-		this.qtdSecrecao = cd.getQtdSecrecao();
 	}
 
 	public ArrayList<Secrecao> getSecrecao() {
@@ -45,6 +44,9 @@ public class ControlerSecrecao {
 
 	public Textura getTextura(int i) {
 		return secrecao.get(i).getTextura();
+	}
+	public String getData(int i) {
+		return secrecao.get(i).getData();
 	}
 
 }

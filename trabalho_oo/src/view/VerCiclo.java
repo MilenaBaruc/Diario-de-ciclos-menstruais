@@ -8,16 +8,24 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+
+import controller.ControlerCiclo;
+import controller.ControlerDados;
 
 public class VerCiclo implements ActionListener{
 	
 	private static JFrame frame;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+    private ControlerDados dados;
+    private ControlerCiclo dadosCiclo;
+	private JList cicloData;
 	
-    public VerCiclo(){
+    public VerCiclo(ControlerDados dados){
 		
 		frame = new JFrame("Ver Ciclos");
 		frame.setSize(400, 400);
@@ -25,12 +33,18 @@ public class VerCiclo implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
+		
+
+		this.dados = dados;
+		dadosCiclo = new ControlerCiclo(dados);
+		cicloData = new JList(dadosCiclo.getCicloData());
+		
 		ciclosPass();
 		painel();
-		btnSair();
 		btnConfirmar();
-		frame.setVisible(true);
+		btnSair();
 		
+		frame.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
@@ -52,13 +66,28 @@ public class VerCiclo implements ActionListener{
 		
 		JPanel painel = new JPanel();
 		
+		cicloData.setBounds(0, 0, 350, 230);
+		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		cicloData.setLayoutOrientation(JList.VERTICAL);
+		cicloData.setVisibleRowCount(-1);
+		cicloData.setForeground(Color.black);
+		cicloData.setOpaque(false);
+		cicloData.setBackground(new Color(255, 255, 255, 0));
+		cicloData.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		
+		
+		
+		
 		painel.setBounds(20, 50, 350, 230);
 		painel.setBackground(new Color(255, 215, 249));
 		painel.setOpaque(true);
 		painel.setBorder(raisedbevel);
 		painel.setLayout(null);
+		painel.setVisible(true);
+
 		
-		frame.add(painel);
+		painel.add(cicloData);
+		frame.add(painel);;
 		
 	}
 	
@@ -92,7 +121,6 @@ public class VerCiclo implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

@@ -74,6 +74,7 @@ public class Ciclo {
 				+ "   duracaoCiclo = " + duracaoCiclo + "\n" 
 				+ "   duracaoMesntruacao = " + duracaoMesntruacao + "\n" 
 				+ "   fluxoMenstrual = " + fluxoMenstrual + "\n" 
-				+ "   sentiuSintoma = " + sentiuSintoma;
+				+ "   sentiuSintoma = " + sentiuSintoma + "\n"
+				+ "   data = " + data + "\n\n";
 	}
 }

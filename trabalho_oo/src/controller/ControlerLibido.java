@@ -11,7 +11,7 @@ public class ControlerLibido {
 	
 	public ControlerLibido(ControlerDados cd) {
 	this.libido = cd.getLibido();
-	this.setQtdLibido(cd.getQtdLibido());
+	this.setQtdLibido(cd.getLibido().size());
 	}
 	
 	public Intensidade getIntensidade(int i) {

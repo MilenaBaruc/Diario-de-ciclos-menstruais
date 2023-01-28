@@ -15,14 +15,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import controller.ControlerCiclo;
+import controller.ControlerDados;
 
 public class AdicionarInfo implements ActionListener{
 	
 	private JFrame frame;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+	private JList cicloData;
+	private ControlerDados dados;
+	private ControlerCiclo dadosCiclo;
 	
 	public AdicionarInfo() {
 		frame = new JFrame("Adicionar");
@@ -31,6 +38,12 @@ public class AdicionarInfo implements ActionListener{
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
+		
+		dados = new ControlerDados();
+		dadosCiclo = new ControlerCiclo(dados);
+		cicloData = new JList(dadosCiclo.getCicloData());
+		
+		
 		background();
 		painelCiclo();
 		painelSintoma();
@@ -224,6 +237,7 @@ public class AdicionarInfo implements ActionListener{
 		frame.add(btnSair);
 	}
 
+	
 	public void actionPerformed(ActionEvent e) {
 		if("voltar" == e.getActionCommand()) {
 			new Principal();
@@ -231,7 +245,7 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "registrarciclo") {
-			new RegistrarCiclo();
+			new RegistrarCiclo(dados);
 			//frame.dispose();
 		}
 		
@@ -240,7 +254,7 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "verciclo") {
-			new VerCiclo();
+			new VerCiclo(dados);
 			//frame.dispose();
 		}
 		
@@ -250,22 +264,21 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "editarciclo") {
-			new EditCiclo();
+			new EscolherCiclo();
 			//frame.dispose();
 		}
 		
 		if(e.getActionCommand() == "editarsintoma") {
-			new EditarSint();
+			new EscolherSint();
 		}
 		
 		if(e.getActionCommand() == "excluirciclo") {
-			new ExcluirCiclo();
+			new ExcluirCiclo(dados);
 		}
 		
 		if(e.getActionCommand() == "excluirsintoma") {
 			new ExcluirSint();
 		}
 	}
-	
 	
 }

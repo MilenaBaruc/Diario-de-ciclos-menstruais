@@ -16,7 +16,7 @@ import modelo.Usuario;
 public class ControlerDados {
 	private Dados dados = new Dados();
 
-	ControlerDados() {
+	public ControlerDados() {
 		dados.preencherDados();
 	}
 
@@ -52,29 +52,6 @@ public class ControlerDados {
 		return dados.getSecrecao();
 	}
 
-	public int getQtdUsuario() {
-		return dados.getQtdUser();
-	}
-
-	public int getQtdCiclo() {
-		return dados.getQtdCiclo();
-	}
-
-	public int getQtdHumor() {
-		return dados.getQtdHumor();
-	}
-
-	public int getQtdFisico() {
-		return dados.getQtdFisico();
-	}
-
-	public int getQtdLibido() {
-		return dados.getQtdLibido();
-	}
-
-	public int getQtdSecrecao() {
-		return dados.getQtdSecrecao();
-	}
 
 	/**
 	 * crud de ciclo
@@ -89,7 +66,7 @@ public class ControlerDados {
 
 	public boolean addCiclo(Boolean dia, int duracao, int menstruacao, Intensidade fluxo, String data) {
 		int count = 0;
-		for (int i = 0; i < dados.getQtdCiclo(); ++i) {
+		for (int i = 0; i < dados.getCiclo().size(); ++i) {
 			if (data == dados.getCiclo().get(i).getData()) {
 				++count;
 			}
@@ -98,7 +75,6 @@ public class ControlerDados {
 			return false;
 		} else {
 			Ciclo novo = new Ciclo(dia, duracao, menstruacao, fluxo, data);
-			dados.setQtdCiclo(getQtdCiclo() + 1);
 			dados.addCiclo(novo);
 			return true;
 		}
@@ -106,10 +82,9 @@ public class ControlerDados {
 
 	public boolean remCiclo(int i) {
 		String dia = dados.getCiclo().get(i).getData();
-		for (int j = 0; j < dados.getQtdCiclo(); ++j) {
+		for (int j = 0; j < dados.getCiclo().size(); ++j) {
 			if (dados.getCiclo().get(j).getData().equals(dia)) {
 				dados.getCiclo().remove(i);
-				dados.setQtdCiclo(getQtdCiclo() - 1);
 				return true;
 			}
 		}
@@ -118,7 +93,7 @@ public class ControlerDados {
 
 	public boolean editarCiclo(int i, Boolean dia, int duracaoC, int duracaoM, Intensidade intensidade, String data) {
 		String dataN = dados.getCiclo().get(i).getData();
-		for (int j = 0; j < dados.getQtdCiclo(); ++j) {
+		for (int j = 0; j < dados.getCiclo().size(); ++j) {
 			if (dados.getCiclo().get(j).getData().equals(dataN)) {
 
 				dados.getCiclo().get(j).setDiaMenstruada(dia);
@@ -147,7 +122,7 @@ public class ControlerDados {
 	public boolean addHumor(int i, Intensidade intensidade, String descricao, String nomeS, String gatilho,
 			Humores humor, String data) {
 		int count = 0;
-		for (int j = 0; j < dados.getQtdHumor(); ++j) {
+		for (int j = 0; j < dados.getHumor().size(); ++j) {
 			if (dados.getHumor().get(j).getData().equals(data)) {
 				++count;
 			}
@@ -157,17 +132,15 @@ public class ControlerDados {
 		} else {
 			Humor novoHumor = new Humor(intensidade, descricao, nomeS, gatilho, humor, data);
 			dados.addHumor(novoHumor);
-			dados.setQtdHumor(getQtdHumor() + 1);
 			return true;
 		}
 	}
 
 	public boolean remHumor(int i) {
 		String dataN = dados.getHumor().get(i).getData();
-		for (int j = 0; j < dados.getQtdHumor(); ++j) {
+		for (int j = 0; j < dados.getHumor().size(); ++j) {
 			if (dados.getHumor().get(j).getData().equals(dataN)) {
 				dados.getHumor().remove(i);
-				dados.setQtdHumor(getQtdHumor() - 1);
 				return true;
 			}
 		}
@@ -178,7 +151,7 @@ public class ControlerDados {
 			Humores humor) {
 		String nome = dados.getHumor().get(i).getNomeSintoma();
 
-		for (int j = 0; j < getQtdHumor(); ++j) {
+		for (int j = 0; j < dados.getHumor().size(); ++j) {
 			if (dados.getHumor().get(j).getNomeSintoma().equals(nome)) {
 				dados.getHumor().get(j).setNomeSintoma(nome);
 				dados.getHumor().get(j).setDescricao(descricao);
@@ -199,7 +172,7 @@ public class ControlerDados {
 	public boolean addFisico(int i, Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica,
 			String remedioTomado, String data) {
 		int count = 0;
-		for (int j = 0; j < dados.getQtdFisico(); ++j) {
+		for (int j = 0; j < dados.getFisico().size(); ++j) {
 			if (dados.getFisico().get(j).getData().equals(data)) {
 				++count;
 			}
@@ -209,17 +182,16 @@ public class ControlerDados {
 		} else {
 			Fisico novoFisico = new Fisico(intensidade, descricao, Nomesintoma, pratica, remedioTomado, data);
 			dados.addFisico(novoFisico);
-			dados.setQtdFisico(getQtdFisico() + 1);
 			return true;
 		}
 	}
 
 	public boolean remFisico(int i) {
 		String dataN = dados.getFisico().get(i).getData();
-		for (int j = 0; j < dados.getQtdFisico(); ++j) {
+		for (int j = 0; j < dados.getFisico().size(); ++j) {
 			if (dados.getFisico().get(j).getData().equals(dataN)) {
 				dados.getFisico().remove(j);
-				dados.setQtdFisico(getQtdFisico() - 1);
+
 				return true;
 			}
 		}
@@ -230,7 +202,7 @@ public class ControlerDados {
 			String remedioTomado, String data) {
 
 		String nomeSint = dados.getFisico().get(i).getNomeSintoma();
-		for (int j = 0; j < dados.getQtdFisico(); ++j) {
+		for (int j = 0; j < dados.getFisico().size(); ++j) {
 			if (dados.getFisico().get(j).getNomeSintoma().equals(nomeSint)) {
 				dados.getFisico().get(j).setData(data);
 				dados.getFisico().get(j).setDescricao(descricao);
@@ -252,7 +224,7 @@ public class ControlerDados {
 	public boolean addLibido(int i, Intensidade intensidade, String descricao, String NomeSintoma,
 			boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
 		int count = 0;
-		for (int j = 0; j < getQtdLibido(); ++j) {
+		for (int j = 0; j < dados.getLibido().size(); ++j) {
 			if (dados.getLibido().get(j).getData().equals(data)) {
 				count++;
 			}
@@ -263,18 +235,16 @@ public class ControlerDados {
 			Libido libido = new Libido(intensidade, descricao, NomeSintoma, relacoesComParceiro, relacoesSemParceiro,
 					data);
 			dados.addLibido(libido);
-			dados.setQtdLibido(getQtdLibido() + 1);
-			return true;
+				return true;
 		}
 
 	}
 
 	public boolean remLibido(int i) {
 		String data = dados.getLibido().get(i).getData();
-		for (int j = 0; j < getQtdLibido(); ++j) {
+		for (int j = 0; j < dados.getFisico().size(); ++j) {
 			if (dados.getLibido().get(j).getData().equals(data)) {
 				dados.getLibido().remove(j);
-				dados.setQtdLibido(getQtdLibido() - 1);
 				return true;
 			}
 		}
@@ -284,7 +254,7 @@ public class ControlerDados {
 	public boolean editarLibido(int i, Intensidade intensidade, String descricao, String NomeSintoma,
 			boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
 		String nomeS = dados.getLibido().get(i).getNomeSintoma();
-		for (int j = 0; j < dados.getQtdLibido(); ++j) {
+		for (int j = 0; j < dados.getFisico().size(); ++j) {
 			if (dados.getLibido().get(j).getNomeSintoma().equals(nomeS)) {
 				dados.getLibido().get(j).setIntensidade(intensidade);
 				dados.getLibido().get(j).setData(data);
@@ -305,7 +275,7 @@ public class ControlerDados {
 	public boolean addSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
 			String data) {
 			int count = 0;
-			for(int j = 0; j < dados.getQtdSecrecao(); ++j) {
+			for(int j = 0; j < dados.getSecrecao().size(); ++j) {
 				if(dados.getSecrecao().get(j).getData().equals(data)) {
 					++count;
 				}
@@ -315,17 +285,15 @@ public class ControlerDados {
 			} else {
 				Secrecao secrecao = new Secrecao(intensidade, descricao, Nomesintoma, textura, data);
 				dados.addSecrecao(secrecao);
-				dados.setQtdSecrecao(getQtdSecrecao() + 1);
 				return true;
 			}
 	}
 
 	public boolean remSecrecao(int i) {
 		String dataN = dados.getSecrecao().get(i).getData();
-		for (int j = 0; j < dados.getQtdSecrecao(); ++j) {
+		for (int j = 0; j < dados.getSecrecao().size(); ++j) {
 			if (dados.getSecrecao().get(j).getData().equals(dataN)) {
 				dados.getSecrecao().remove(j);
-				dados.setQtdSecrecao(getQtdSecrecao() - 1);
 			}
 		}
 		return false;
@@ -334,7 +302,7 @@ public class ControlerDados {
 	public boolean editarSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
 			String data) {
 		String nomeS = dados.getSecrecao().get(i).getNomeSintoma();
-		for (int j = 0; j < dados.getQtdSecrecao(); ++j) {
+		for (int j = 0; j < dados.getSecrecao().size(); ++j) {
 			if (dados.getSecrecao().get(j).getNomeSintoma().equals(nomeS)) {
 				dados.getSecrecao().get(j).setData(data);
 				dados.getSecrecao().get(j).setDescricao(descricao);

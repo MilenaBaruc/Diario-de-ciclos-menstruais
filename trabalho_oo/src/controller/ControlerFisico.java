@@ -11,8 +11,20 @@ public class ControlerFisico {
 	
 	public ControlerFisico(ControlerDados cd) {
 		this.fisico = cd.getFisico();
-		this.qtdFisico = cd.getQtdFisico();
+		this.qtdFisico = cd.getHumor().size();
 	}
+	
+	public String[] getFisicoData() {
+        String[] data = new String[fisico.size()];
+        for (int i = 0; i < fisico.size(); ++i) {
+            if (fisico.get(i).getData() == null) {
+                return data;
+            } else {
+                data[i] = fisico.get(i).getData();
+            }
+        }
+        return data;
+    }
 
 	public ArrayList<Fisico> getFisico() {
 		return fisico;

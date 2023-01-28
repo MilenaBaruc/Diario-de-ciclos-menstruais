@@ -12,7 +12,7 @@ public class ControlerHumor {
 	
 	public ControlerHumor(ControlerDados cd) {
 		this.humor = cd.getHumor();
-		this.setQtdHumor(cd.getQtdHumor());
+		this.setQtdHumor(cd.getHumor().size());
 	}
 	
 	public Intensidade getIntendisidade(int i) {
