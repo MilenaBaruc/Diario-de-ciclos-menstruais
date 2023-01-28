@@ -21,7 +21,7 @@ public class VerCiclo implements ActionListener{
 	private static JFrame frame;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-    private ControlerDados dados;
+    private static ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	
@@ -49,7 +49,7 @@ public class VerCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new VerCiclo();
+		new VerCiclo(dados);
 		
 	}
 	

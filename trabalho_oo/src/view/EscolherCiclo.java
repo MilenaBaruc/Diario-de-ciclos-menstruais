@@ -25,13 +25,13 @@ public class EscolherCiclo implements ActionListener{
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
     private JTable listaCiclo;
-    private ControlerDados dados;
+    private static ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private JScrollPane cicloDataScroll;
 	private int i;
 	
-    public EscolherCiclo(){
+    public EscolherCiclo(ControlerDados dados){
 		
 		frame = new JFrame("Escolha");
 		frame.setSize(400, 400);
@@ -41,7 +41,7 @@ public class EscolherCiclo implements ActionListener{
 		frame.setLayout(null);
 		
 		
-		dados = new ControlerDados();
+		this.dados = dados;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
 		
@@ -56,7 +56,7 @@ public class EscolherCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new EscolherCiclo();
+		new EscolherCiclo(dados);
 		
 	}
 	
@@ -128,11 +128,11 @@ public class EscolherCiclo implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
-    		
+    		//cicloData.get
 			frame.dispose();
 		}
 		

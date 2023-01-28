@@ -22,7 +22,7 @@ public class ExcluirCiclo implements ActionListener{
     private static JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-    private ControlerDados dados;
+    private static ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private static int i;
@@ -36,7 +36,7 @@ public class ExcluirCiclo implements ActionListener{
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
 		
-		this.dados = dados;
+		this.dados = cd;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
 		
@@ -50,7 +50,7 @@ public class ExcluirCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new ExcluirCiclo();
+		new ExcluirCiclo(dados);
 		
 	}
 	
@@ -121,7 +121,7 @@ public class ExcluirCiclo implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

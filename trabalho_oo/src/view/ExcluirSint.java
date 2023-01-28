@@ -12,13 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import controller.ControlerDados;
+
 public class ExcluirSint implements ActionListener{
 	
     private static JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+	private static ControlerDados dados;
 	
-    public ExcluirSint(){
+    public ExcluirSint(ControlerDados dados){
 		
 		frame = new JFrame("Excluir Sintoma");
 		frame.setSize(400, 400);
@@ -26,6 +29,7 @@ public class ExcluirSint implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+	this.dados = dados;
 		sintedit();
 		painel();
 		btnSair();
@@ -36,7 +40,7 @@ public class ExcluirSint implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new ExcluirSint();
+		new ExcluirSint(dados);
 		
 	}
 	
@@ -93,7 +97,7 @@ public class ExcluirSint implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

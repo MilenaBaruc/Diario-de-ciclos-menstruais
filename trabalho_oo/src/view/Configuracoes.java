@@ -13,18 +13,24 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import controller.ControlerDados;
+
 public class Configuracoes implements ActionListener{
 	private static JFrame frame;
 	private static JButton btnAtt;
+	private static ControlerDados dados;
 
 	String[] Gravida = { "Sim", "Nao" };
 
-	Configuracoes() {
+	Configuracoes(ControlerDados dados) {
 		frame = new JFrame("Configurações");
 		frame.setSize(400, 400);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.setVisible(true);
+		
+		this.dados = dados;
+		
 		peso();
 		gravidez();
 		nome();
@@ -101,7 +107,7 @@ public class Configuracoes implements ActionListener{
 	}
 
 	public static void main(String[] args) {
-		new Configuracoes();
+		new Configuracoes(dados);
 	}
 	
 	public void actionPerformed(ActionEvent ae) {

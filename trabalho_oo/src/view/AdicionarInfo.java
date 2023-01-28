@@ -28,10 +28,10 @@ public class AdicionarInfo implements ActionListener{
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
 	private JList cicloData;
-	private ControlerDados dados;
+	private static ControlerDados dados;
 	private ControlerCiclo dadosCiclo;
 	
-	public AdicionarInfo() {
+	public AdicionarInfo(ControlerDados dados) {
 		frame = new JFrame("Adicionar");
 		frame.setSize(800, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +39,7 @@ public class AdicionarInfo implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		
-		dados = new ControlerDados();
+		this.dados = dados;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
 		
@@ -53,7 +53,7 @@ public class AdicionarInfo implements ActionListener{
 	}
 
 	public static void main(String[] args) {
-		new AdicionarInfo();
+		new AdicionarInfo(dados);
 
 	}
 	
@@ -240,7 +240,7 @@ public class AdicionarInfo implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if("voltar" == e.getActionCommand()) {
-			new Principal();
+			new Principal(dados);
 			frame.dispose();
 		}
 		
@@ -250,7 +250,7 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "registrarsintoma") {
-			new RegistrarSint();
+			new RegistrarSint(dados);
 		}
 		
 		if(e.getActionCommand() == "verciclo") {
@@ -259,17 +259,17 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "versintoma") {
-			new VerSintoma();
+			new VerSintoma(dados);
 			//frame.dispose();
 		}
 		
 		if(e.getActionCommand() == "editarciclo") {
-			new EscolherCiclo();
+			new EscolherCiclo(dados);
 			//frame.dispose();
 		}
 		
 		if(e.getActionCommand() == "editarsintoma") {
-			new EscolherSint();
+			new EscolherSint(dados);
 		}
 		
 		if(e.getActionCommand() == "excluirciclo") {
@@ -277,7 +277,7 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "excluirsintoma") {
-			new ExcluirSint();
+			new ExcluirSint(dados);
 		}
 	}
 	

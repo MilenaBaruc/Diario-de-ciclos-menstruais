@@ -13,14 +13,16 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 
+import controller.ControlerDados;
+
 public class EscolherSint implements ActionListener{
 	
     private static JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
     private JTable listaSint;
-    
-    public EscolherSint(){
+    private static ControlerDados dados;
+    public EscolherSint(ControlerDados dados){
 		
 		frame = new JFrame("Escolha");
 		frame.setSize(400, 400);
@@ -28,6 +30,7 @@ public class EscolherSint implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		this.dados = dados;
 		sintedit();
 		painel();
 		btnSair();
@@ -38,7 +41,7 @@ public class EscolherSint implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new EscolherSint();
+		new EscolherSint(dados);
 		
 	}
 	
@@ -98,7 +101,7 @@ public class EscolherSint implements ActionListener{
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
-			 new EditarSint();
+			 new EditarSint(dados);
 			frame.dispose();
 		}
 		

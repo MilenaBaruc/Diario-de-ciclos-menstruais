@@ -12,13 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import controller.ControlerDados;
+
 public class VerSintoma implements ActionListener{
 	
     private static JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-	
-    public VerSintoma(){
+	private static ControlerDados dados;
+    public VerSintoma(ControlerDados dados){
 		
 		frame = new JFrame("Lótus");
 		frame.setSize(400, 400);
@@ -26,6 +28,7 @@ public class VerSintoma implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		this.dados = dados;
 		sintomasPass();
 		painel();
 		btnSair();
@@ -36,7 +39,7 @@ public class VerSintoma implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new VerSintoma();
+		new VerSintoma(dados);
 		
 	}
 	
@@ -93,7 +96,7 @@ public class VerSintoma implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

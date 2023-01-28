@@ -1,6 +1,7 @@
 package view;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import controller.ControlerDados;
+
 public class RegistrarSint implements ActionListener {
 
 	private static JFrame frame;
@@ -26,8 +29,9 @@ public class RegistrarSint implements ActionListener {
 	private static JRadioButton naorem;
 	private static JLabel qualrem;
 	private static JTextField boxqualrem;
+	private static ControlerDados dados;
 
-	public RegistrarSint() {
+	public RegistrarSint(ControlerDados dados) {
 
 		frame = new JFrame("Registrar Sintoma");
 		frame.setSize(400, 400);
@@ -35,6 +39,7 @@ public class RegistrarSint implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
+		this.dados = dados;
 		humor();
 		libido();
 		fisico();
@@ -48,7 +53,7 @@ public class RegistrarSint implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		new RegistrarSint();
+		new RegistrarSint(dados);
 
 	}
 
@@ -211,7 +216,7 @@ public class RegistrarSint implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if ("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
 		if ("confirmar" == e.getActionCommand()) {

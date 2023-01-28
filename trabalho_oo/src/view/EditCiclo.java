@@ -36,7 +36,7 @@ public class EditCiclo implements ActionListener{
 	private static JTextField boxCiclo;
 	private static JTextField boxMens;
 	private static JTable listaCiclo;
-	private ControlerDados dados;
+	private static ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private static int i;
@@ -213,7 +213,7 @@ public class EditCiclo implements ActionListener{
 	
 	public static void main(String[] args) {
 		
-		new EditCiclo();
+		new EditCiclo(dados);
 		
 	}
 
@@ -221,7 +221,7 @@ public class EditCiclo implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if("voltar" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {

@@ -21,7 +21,7 @@ public class Principal implements ActionListener{
 	private JLabel nomeLabel;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
 	private JList cicloData;
-	private ControlerDados dados;
+	private static ControlerDados dados;
 	private ControlerCiclo dadosCiclo;
 	private JPanel painelCiclo;
 	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
@@ -34,6 +34,26 @@ public class Principal implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		
 		dados = new ControlerDados();
+		dadosCiclo = new ControlerCiclo(dados);
+		cicloData = new JList(dadosCiclo.getCicloData());
+		
+		background();
+		painelSint();
+		painelCiclo();
+		btnAddSint();
+		btnConfig();
+		btnSair();
+		frame.setVisible(true);
+	}
+	
+	Principal(ControlerDados dados){
+		frame = new JFrame("Lótus");
+		frame.setSize(800, 550);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		
+		this.dados = dados;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
 		
@@ -144,16 +164,16 @@ public class Principal implements ActionListener{
 	}
 
 	public static void main(String[] args) {
-		new Principal();
+		new Principal(dados);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if("configurar" == e.getActionCommand()) {
-			new Configuracoes();
+			new Configuracoes(dados);
 		}
 		if("Add Sintoma" == e.getActionCommand()) {
-			new AdicionarInfo();
+			new AdicionarInfo(dados);
 			frame.dispose();
 		}
 		if("sair" == e.getActionCommand()) {
