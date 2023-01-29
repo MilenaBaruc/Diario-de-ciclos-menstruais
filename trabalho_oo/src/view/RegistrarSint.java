@@ -109,7 +109,7 @@ public class RegistrarSint implements ActionListener {
 		frame.add(descricaoLabel);
 		frame.add(nomeSint);
 		frame.add(data);
-		frame.add(descricao);
+		frame.add(descricaoField);
 
 	}
 
@@ -185,13 +185,13 @@ public class RegistrarSint implements ActionListener {
 			relacoesLabel.setBounds(10, 130, 300, 30);
 			relacoesLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
 
-			relacaoComTrue = new JRadioButton("Com parceire");
+			relacaoComTrue = new JRadioButton("Com parceiro");
 			relacaoComTrue.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 			relacaoComTrue.setBounds(10, 160, 100, 15);
 			relacaoComTrue.addActionListener(this);
 			relacaoComTrue.setOpaque(false);
 
-			relacaoSemTrue = new JRadioButton("Sem parceire");
+			relacaoSemTrue = new JRadioButton("Sem parceiro");
 			relacaoSemTrue.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 			relacaoSemTrue.setBounds(110, 160, 100, 15);
 			relacaoSemTrue.addActionListener(this);

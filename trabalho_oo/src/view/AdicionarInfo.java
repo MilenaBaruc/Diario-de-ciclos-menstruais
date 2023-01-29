@@ -47,6 +47,7 @@ public class AdicionarInfo implements ActionListener{
 		background();
 		painelCiclo();
 		painelSintoma();
+		painelPesquisa();
 		//painelMenstruacao();
 		btnSair();
 		frame.setVisible(true);
@@ -178,8 +179,59 @@ public class AdicionarInfo implements ActionListener{
 		painelSintoma.add(sintoma); painelSintoma.add(Csintoma); painelSintoma.add(Rsintoma); painelSintoma.add(Usintoma); painelSintoma.add(Dsintoma);
 		frame.add(painelSintoma);
 	}
-
 	
+	public void painelPesquisa() {
+		JPanel painelPesquisa = new JPanel();
+		JLabel pesquisa = new JLabel("Pesquisar:");
+		JButton pfisico = new JButton("Fisico");
+		JButton phumor = new JButton("Humor");
+		JButton plibido = new JButton("Libido");
+		JButton psecrecao = new JButton("Secreção");
+		
+		painelPesquisa.setBounds(30, 355, 725, 100);
+		painelPesquisa.setBackground(new Color(255, 215, 249));
+		painelPesquisa.setOpaque(true);
+		painelPesquisa.setBorder(raisedbevel);
+		painelPesquisa.setLayout(null);
+		
+		pesquisa.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		pesquisa.setBounds(10, 10, 200, 20);
+		
+		pfisico.setBounds(90, 60, 120, 20);
+		pfisico.setBackground(new Color(108, 70, 117));
+		pfisico.setForeground(new Color(255, 255, 255));
+		pfisico.setBorder(blackline);
+		pfisico.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		pfisico.setActionCommand("pesquisarfisico");
+		pfisico.addActionListener(this);
+		
+		phumor.setBounds(230, 60, 120, 20);
+		phumor.setBackground(new Color(108, 70, 117));
+		phumor.setForeground(new Color(255, 255, 255));
+		phumor.setBorder(blackline);
+		phumor.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		phumor.setActionCommand("pesquisarhumor");
+		phumor.addActionListener(this);
+		
+		plibido.setBounds(370, 60, 120, 20);
+		plibido.setBackground(new Color(108, 70, 117));
+		plibido.setForeground(new Color(255, 255, 255));
+		plibido.setBorder(blackline);
+		plibido.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		plibido.setActionCommand("pesquisarlibido");
+		plibido.addActionListener(this);
+		
+		psecrecao.setBounds(510, 60, 120, 20);
+		psecrecao.setBackground(new Color(108, 70, 117));
+		psecrecao.setForeground(new Color(255, 255, 255));
+		psecrecao.setBorder(blackline);
+		psecrecao.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		psecrecao.setActionCommand("pesquisarsecrecao");
+		psecrecao.addActionListener(this);
+		
+		painelPesquisa.add(pesquisa); painelPesquisa.add(pfisico); painelPesquisa.add(phumor); painelPesquisa.add(plibido); painelPesquisa.add(psecrecao);
+		frame.add(painelPesquisa);
+	}
 
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");
@@ -233,6 +285,22 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "excluirsintoma") {
+			new ExcluirSint(dados);
+		}
+		
+		if(e.getActionCommand() == "pesquisarfisico") {
+			new ExcluirSint(dados);
+		}
+		
+		if(e.getActionCommand() == "pesquisarhumor") {
+			new ExcluirSint(dados);
+		}
+		
+		if(e.getActionCommand() == "pesquisarsecrecao") {
+			new ExcluirSint(dados);
+		}
+		
+		if(e.getActionCommand() == "pesquisarlibido") {
 			new ExcluirSint(dados);
 		}
 	}
