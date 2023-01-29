@@ -76,7 +76,7 @@ public class EscolherCiclo implements ActionListener {
 		cicloData.setBounds(0, 0, 350, 230);
 		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		cicloData.setLayoutOrientation(JList.VERTICAL);
-		cicloData.setVisibleRowCount(-1);
+		cicloData.setVisibleRowCount(10);
 		cicloData.setForeground(Color.black);
 		cicloData.setOpaque(false);
 		cicloData.setBackground(new Color(255, 255, 255, 0));
