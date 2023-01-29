@@ -20,9 +20,8 @@ public class Dados {
 	}
 	
 	public void preencherDados() {
-		for(int i = 0; i < 5; ++i) {
+		for(int i = 0; i < 1; ++i) {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
-			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/200" + i);
 			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", "alegre", "12/12/1222");
 			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", "aquosa", "12/12/1222");
 			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true, "12/12/1222");
@@ -30,13 +29,15 @@ public class Dados {
 		
 		
 			user.add(usuario);
-			this.ciclo.add(ciclo);
 			this.humor.add(humor);
 			this.libido.add(libido);
 			this.fisico.add(fisico);
 			this.secrecao.add(secrecao);
 			
-			System.out.print(ciclo);
+		}
+		for(int i = 0; i < 5; ++i) {
+		Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/200" + i);
+		this.ciclo.add(ciclo);
 		}
 	}
 
