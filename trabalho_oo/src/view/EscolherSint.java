@@ -9,19 +9,26 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 
 import controller.ControlerDados;
+import controller.ControlerSintomas;
 
 public class EscolherSint implements ActionListener{
 	
     private static JFrame frame;
     public Border blackline = BorderFactory.createLineBorder(Color.black);
     public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-    private JTable listaSint;
     private static ControlerDados dados;
+    private ControlerSintomas dadosSint;
+    private JList humorData;
+    private JList fisicoData;
+    private JList libidoData;
+    private JList secrecaoData;
+
     public EscolherSint(ControlerDados dados){
 		
 		frame = new JFrame("Escolha");
@@ -30,7 +37,14 @@ public class EscolherSint implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
+		
 		this.dados = dados;
+		dadosSint = new ControlerSintomas(dados);
+		humorData = new JList(dadosSint.getHumorData());
+		fisicoData = new JList(dadosSint.getFisicoData());
+		libidoData = new JList(dadosSint.getLibidoData());
+		secrecaoData = new JList(dadosSint.getSecrecaoData());
+		
 		sintedit();
 		painel();
 		btnSair();

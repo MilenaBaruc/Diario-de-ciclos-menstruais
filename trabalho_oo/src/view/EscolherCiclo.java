@@ -30,7 +30,6 @@ public class EscolherCiclo implements ActionListener {
 	private static ControlerDados dados;
 	private ControlerCiclo dadosCiclo;
 	private JList cicloData;
-	private JScrollPane cicloDataScroll;
 	private String dataLida;
 	private int i;
 
@@ -70,7 +69,6 @@ public class EscolherCiclo implements ActionListener {
 
 	}
 
-	private String[] colunas = { "ciclo", "data" };
 
 	public void painel() {
 
@@ -144,7 +142,6 @@ public class EscolherCiclo implements ActionListener {
 			new EditCiclo(dados, i, dados.getCiclo().get(i).getData(), dados.getCiclo().get(i).getDiaMenstruada(),
 					dados.getCiclo().get(i).getDuracaoCiclo(), dados.getCiclo().get(i).getDuracaoMesntruacao(),
 					dados.getCiclo().get(i).getFluxoMenstrual());
-			;
 			frame.dispose();
 		}
 

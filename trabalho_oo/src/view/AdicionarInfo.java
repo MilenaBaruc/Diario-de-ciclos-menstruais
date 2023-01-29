@@ -206,7 +206,7 @@ public class AdicionarInfo implements ActionListener{
 		}
 		
 		if(e.getActionCommand() == "registrarsintoma") {
-			new RegistrarSint(dados);
+			new TipoSint(dados);
 		}
 		
 		if(e.getActionCommand() == "verciclo") {

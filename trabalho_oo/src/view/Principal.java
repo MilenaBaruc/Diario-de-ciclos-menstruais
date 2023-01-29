@@ -23,6 +23,7 @@ public class Principal implements ActionListener{
 	private JList cicloData;
 	private static ControlerDados dados;
 	private ControlerCiclo dadosCiclo;
+	private ControlerSintomas dadosSint;
 	private JPanel painelCiclo;
 	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
 	
