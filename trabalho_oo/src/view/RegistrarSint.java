@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.text.MaskFormatter;
 
+import controller.ControlerCiclo;
 import controller.ControlerDados;
 import enumeradores.Intensidade;
 
@@ -50,10 +51,12 @@ public class RegistrarSint implements ActionListener {
 	private String humorLido;
 	private boolean relacoesComLido;
 	private boolean relacoesSemLido;
+	private ControlerCiclo dadosCiclo;
 
 	public RegistrarSint(ControlerDados dados, int opcao) {
 		this.dados = dados;
 		this.opcao = opcao;
+		dadosCiclo = new ControlerCiclo(dados);
 		frame = new JFrame(sintoma);
 		frame.setSize(400, 400);
 		frame.setResizable(false);
@@ -109,7 +112,7 @@ public class RegistrarSint implements ActionListener {
 		frame.add(descricaoLabel);
 		frame.add(nomeSint);
 		frame.add(data);
-		frame.add(descricao);
+		frame.add(descricaoField);
 
 	}
 
@@ -263,14 +266,36 @@ public class RegistrarSint implements ActionListener {
 		}
 		if ("confirmar" == e.getActionCommand()) {
 			intensidade = null;
+			descricaoLida = descricaoField.getText();
+			nomeSintLido = nomeSint.getText();
+			dataLida = data.getText();
 			if (opcao == 1) {
-				descricaoLida = descricaoField.getText();
+				remedioLido = fisicoRemedio.getText();
+				if(praticaTrue.isSelected()) {
+					praticaLida = true;
+				} else {
+					praticaLida = false;
+				}
+				dados.addFisico(intensidade, descricaoLida, nomeSintLido, praticaLida, remedioLido, dataLida);
 			} else if (opcao == 2) {
-
+				gatilhoLido = gatilho.getText();
+				humorLido = tipoHumor.getText();
+				dados.addHumor(intensidade, descricaoLida, nomeSintLido, gatilhoLido, humorLido, dataLida);
 			} else if (opcao == 3) {
-
+				if(relacaoComTrue.isSelected()) {
+					relacoesComLido = true;
+					relacoesSemLido = false;
+				} else if (relacaoSemTrue.isSelected()) {
+					relacoesComLido = false;
+					relacoesSemLido = true;
+				} else if (relacaoFalse.isSelected()) {
+					relacoesComLido = false;
+					relacoesSemLido = false;
+				}
+				dados.addLibido(intensidade, descricaoLida, nomeSintLido, relacoesComLido, relacoesSemLido, dataLida);
 			} else if (opcao == 4) {
-
+				texturaLida = secrecaoField.getText();
+				dados.addSecrecao(intensidade, descricaoLida, nomeSintLido, texturaLida, dataLida);
 			}
 
 			new AdicionarInfo(dados);

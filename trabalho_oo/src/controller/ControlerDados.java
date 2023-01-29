@@ -63,7 +63,7 @@ public class ControlerDados {
 	 * @return
 	 */
 
-	public boolean addCiclo(Boolean dia, int duracao, int menstruacao, Intensidade fluxo, String data) {
+	public boolean addCiclo(boolean dia, int duracao, int menstruacao, Intensidade fluxo, String data) {
 		int count = 0;
 		for (int i = 0; i < dados.getCiclo().size(); ++i) {
 			if (data == dados.getCiclo().get(i).getData()) {
@@ -118,7 +118,7 @@ public class ControlerDados {
 	 * @param data
 	 * @return
 	 */
-	public boolean addHumor(int i, Intensidade intensidade, String descricao, String nomeS, String gatilho,
+	public boolean addHumor(Intensidade intensidade, String descricao, String nomeS, String gatilho,
 			String humor, String data) {
 		int count = 0;
 		for (int j = 0; j < dados.getHumor().size(); ++j) {
@@ -168,7 +168,7 @@ public class ControlerDados {
 	 * 
 	 */
 
-	public boolean addFisico(int i, Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica,
+	public boolean addFisico(Intensidade intensidade, String descricao, String Nomesintoma, boolean pratica,
 			String remedioTomado, String data) {
 		int count = 0;
 		for (int j = 0; j < dados.getFisico().size(); ++j) {
@@ -220,7 +220,7 @@ public class ControlerDados {
 	 * 
 	 */
 
-	public boolean addLibido(int i, Intensidade intensidade, String descricao, String NomeSintoma,
+	public boolean addLibido(Intensidade intensidade, String descricao, String NomeSintoma,
 			boolean relacoesComParceiro, boolean relacoesSemParceiro, String data) {
 		int count = 0;
 		for (int j = 0; j < dados.getLibido().size(); ++j) {
@@ -271,7 +271,7 @@ public class ControlerDados {
 	 * 
 	 */
 
-	public boolean addSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, String textura,
+	public boolean addSecrecao(Intensidade intensidade, String descricao, String Nomesintoma, String textura,
 			String data) {
 			int count = 0;
 			for(int j = 0; j < dados.getSecrecao().size(); ++j) {
