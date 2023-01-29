@@ -2,9 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
-import enumeradores.Humores;
+
 import enumeradores.Intensidade;
-import enumeradores.Textura;
 import modelo.Ciclo;
 import modelo.Dados;
 import modelo.Fisico;
@@ -120,7 +119,7 @@ public class ControlerDados {
 	 * @return
 	 */
 	public boolean addHumor(int i, Intensidade intensidade, String descricao, String nomeS, String gatilho,
-			Humores humor, String data) {
+			String humor, String data) {
 		int count = 0;
 		for (int j = 0; j < dados.getHumor().size(); ++j) {
 			if (dados.getHumor().get(j).getData().equals(data)) {
@@ -148,7 +147,7 @@ public class ControlerDados {
 	}
 
 	public boolean editarHumor(int i, Intensidade intensidade, String descricao, String nomeS, String gatilho,
-			Humores humor) {
+			String humor) {
 		String nome = dados.getHumor().get(i).getNomeSintoma();
 
 		for (int j = 0; j < dados.getHumor().size(); ++j) {
@@ -272,7 +271,7 @@ public class ControlerDados {
 	 * 
 	 */
 
-	public boolean addSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
+	public boolean addSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, String textura,
 			String data) {
 			int count = 0;
 			for(int j = 0; j < dados.getSecrecao().size(); ++j) {
@@ -299,7 +298,7 @@ public class ControlerDados {
 		return false;
 	}
 
-	public boolean editarSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, Textura textura,
+	public boolean editarSecrecao(int i, Intensidade intensidade, String descricao, String Nomesintoma, String textura,
 			String data) {
 		String nomeS = dados.getSecrecao().get(i).getNomeSintoma();
 		for (int j = 0; j < dados.getSecrecao().size(); ++j) {

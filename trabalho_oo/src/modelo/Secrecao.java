@@ -1,23 +1,23 @@
 package modelo;
 
 import enumeradores.Intensidade;
-import enumeradores.Textura;
+
 
 public class Secrecao extends Sintoma {
-	private Textura textura;
+	private String textura;
 
-	public Secrecao(Intensidade intensidade, String descricao, String Nomesintoma, Textura textura, String data) {
+	public Secrecao(Intensidade intensidade, String descricao, String Nomesintoma, String textura, String data) {
 		super(intensidade, descricao, Nomesintoma, data);
 		this.textura = textura;
 	}
 	
 	public Secrecao() {}
 
-	public Textura getTextura() {
+	public String getTextura() {
 		return textura;
 	}
 
-	public void setTextura(Textura textura) {
+	public void setTextura(String textura) {
 		this.textura = textura;
 	}
 

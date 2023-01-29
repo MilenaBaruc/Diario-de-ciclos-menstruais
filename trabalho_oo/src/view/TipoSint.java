@@ -46,14 +46,14 @@ public class TipoSint implements ActionListener {
 	public static void main(String[] args) {
 		new TipoSint(dados);
 	}
-	
+
 	public void labelSint() {
 		JLabel sintoma = new JLabel("Escolha um:");
 		sintoma.setBounds(20, 20, 250, 15);
 		sintoma.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		frame.add(sintoma);
 	}
-	
+
 	public void btnHumor() {
 		JButton btnHumor = new JButton("Humor");
 		btnHumor.setBounds(102, 130, 80, 20);
@@ -65,7 +65,7 @@ public class TipoSint implements ActionListener {
 		btnHumor.addActionListener(this);
 		frame.add(btnHumor);
 	}
-	
+
 	public void btnFisico() {
 		JButton btnFisico = new JButton("Fisico");
 		btnFisico.setBounds(202, 130, 80, 20);
@@ -77,7 +77,7 @@ public class TipoSint implements ActionListener {
 		btnFisico.addActionListener(this);
 		frame.add(btnFisico);
 	}
-	
+
 	public void btnLibido() {
 		JButton btnLibido = new JButton("Libido");
 		btnLibido.setBounds(102, 170, 80, 20);
@@ -132,6 +132,22 @@ public class TipoSint implements ActionListener {
 		// TODO Auto-generated method stub
 		if ("voltar" == e.getActionCommand()) {
 			new AdicionarInfo(dados);
+			frame.dispose();
+		}
+		if ("fisico" == e.getActionCommand()) {
+			new RegistrarSint(dados, 1);
+			frame.dispose();
+		}
+		if ("humor" == e.getActionCommand()) {
+			new RegistrarSint(dados, 2);
+			frame.dispose();
+		}
+		if ("libido" == e.getActionCommand()) {
+			new RegistrarSint(dados, 3);
+			frame.dispose();
+		}
+		if ("secrecao" == e.getActionCommand()) {
+			new RegistrarSint(dados, 4);
 			frame.dispose();
 		}
 	}

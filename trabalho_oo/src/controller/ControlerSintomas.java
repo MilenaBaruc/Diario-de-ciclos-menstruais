@@ -2,9 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
-import enumeradores.Humores;
+
 import enumeradores.Intensidade;
-import enumeradores.Textura;
 import modelo.Fisico;
 import modelo.Humor;
 import modelo.Libido;
@@ -165,7 +164,7 @@ public class ControlerSintomas {
 	public String getDataHumor(int i) {
 		return humor.get(i).getData();
 	}
-	public Humores getSenHumor(int i) {
+	public String getSenHumor(int i) {
 		return humor.get(i).getHumor();
 	}
 
@@ -216,7 +215,7 @@ public class ControlerSintomas {
 		return secrecao.get(i).getNomeSintoma();
 	}
 
-	public Textura getTexturaSecrecao(int i) {
+	public String getTexturaSecrecao(int i) {
 		return secrecao.get(i).getTextura();
 	}
 	public String getDataSecrecao(int i) {

@@ -41,10 +41,7 @@ public class Application {
 		humor.setIntensidade(Intensidade.FORTE);
 		humor.setNomeSintoma("depressao");
 		humor.setGatilho("Tite ser o tecnico da selecao brasileira");
-		humor.setHumor(Humores.TRISTE);
-		
-		libido.setDescricao("sem vontade alguma");
-		libido.setIntensidade(Intensidade.LEVE);
+		humor.setHumor("Triste");
 		libido.setNomeSintoma(null);
 		libido.setRelacoesComParceiro(false);
 		libido.setRelacoesSemParceiro(false);
@@ -52,7 +49,7 @@ public class Application {
 		secrecao.setDescricao("Tem um trem esquisto aqui, bicho");
 		secrecao.setIntensidade(Intensidade.LEVE);
 		secrecao.setNomeSintoma("Se alguem souber, me conta");
-		secrecao.setTextura(Textura.INCOMUM);
+		secrecao.setTextura("incomum");
 		
 		System.out.println();
 		System.out.println("Com os valores alterados: ");

@@ -2,9 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
-import enumeradores.Humores;
+
 import enumeradores.Intensidade;
-import enumeradores.Textura;
 
 public class Dados {
 	private ArrayList<Usuario> user = new ArrayList<Usuario>();
@@ -24,8 +23,8 @@ public class Dados {
 		for(int i = 0; i < 5; ++i) {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
 			Ciclo ciclo = new Ciclo(true, i, i, Intensidade.LEVE, "10/12/200" + i);
-			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", Humores.ALEGRE, "12/12/1222");
-			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", Textura.AQUOSA, "12/12/1222");
+			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", "alegre", "12/12/1222");
+			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", "aquosa", "12/12/1222");
 			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true, "12/12/1222");
 			Fisico fisico = new Fisico(Intensidade.FORTE, "dor no u" + i, "dor", false, "dorflex", "12/12/1221");
 		
@@ -100,8 +99,8 @@ public class Dados {
 	public void addLibido(Libido libido) {
 		this.libido.add(libido);
 	
-	}
-
+	} 
+	
 	public ArrayList<Secrecao> getSecrecao() {
 		return secrecao;
 	}

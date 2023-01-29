@@ -1,13 +1,13 @@
 package modelo;
 
-import enumeradores.Humores;
+
 import enumeradores.Intensidade;
 
 public class Humor extends Sintoma {
 	private String gatilho;
-	private Humores humor;
+	private String humor;
 
-	public Humor(Intensidade intensidade, String descricao, String NomeSintoma, String gatilho, Humores humor, String data) {
+	public Humor(Intensidade intensidade, String descricao, String NomeSintoma, String gatilho, String humor, String data) {
 		super(intensidade, descricao, NomeSintoma, data);
 		this.gatilho = gatilho;
 		this.humor = humor;
@@ -24,11 +24,11 @@ public class Humor extends Sintoma {
 		this.gatilho = gatilho;
 	}
 
-	public Humores getHumor() {
+	public String getHumor() {
 		return humor;
 	}
 
-	public void setHumor(Humores humor) {
+	public void setHumor(String humor) {
 		this.humor = humor;
 	}
 
