@@ -20,12 +20,12 @@ public class Dados {
 	}
 	
 	public void preencherDados() {
-		for(int i = 0; i < 1; ++i) {
+		for(int i = 0; i <= 1; ++i) {
 			Usuario usuario = new Usuario("usuario" + i, "22/12/1212", true, "22,1");
-			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "Felicidade", "chocolate", "alegre", "12/12/1222");
-			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "Ta saindo aqui meu", "aquosa", "12/12/1222");
-			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libids", true, true, "12/12/1222");
-			Fisico fisico = new Fisico(Intensidade.FORTE, "dor no u" + i, "dor", false, "dorflex", "12/12/1221");
+			Humor humor = new Humor(Intensidade.LEVE, "so felix" + i, "humor" + i, "chocolate", "alegre", "12/12/1222");
+			Secrecao secrecao = new Secrecao(Intensidade.LEVE, "n sei o q" + i, "secrecao" + i, "aquosa", "12/12/1222");
+			Libido libido = new Libido(Intensidade.FORTE, "vontade de blau" + i, "libido" + i, true, true, "12/12/1222");
+			Fisico fisico = new Fisico(Intensidade.FORTE, "dor no u" + i, "fisico" + i, false, "dorflex", "12/12/1221");
 		
 		
 			user.add(usuario);

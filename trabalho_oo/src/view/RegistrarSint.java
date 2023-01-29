@@ -19,6 +19,7 @@ import javax.swing.text.MaskFormatter;
 
 import controller.ControlerCiclo;
 import controller.ControlerDados;
+import controller.ControlerSintomas;
 import enumeradores.Intensidade;
 
 public class RegistrarSint implements ActionListener {
@@ -27,7 +28,7 @@ public class RegistrarSint implements ActionListener {
 	private JFrame frame;
 	private String sintoma;
 	private int opcao = 0;
-	private static ControlerDados dados;
+	private ControlerDados dados;
 	private JTextField nomeSint;
 	private JFormattedTextField data;
 	private JTextField descricaoField;
@@ -51,12 +52,11 @@ public class RegistrarSint implements ActionListener {
 	private String humorLido;
 	private boolean relacoesComLido;
 	private boolean relacoesSemLido;
-	private ControlerCiclo dadosCiclo;
 
+	
 	public RegistrarSint(ControlerDados dados, int opcao) {
 		this.dados = dados;
 		this.opcao = opcao;
-		dadosCiclo = new ControlerCiclo(dados);
 		frame = new JFrame(sintoma);
 		frame.setSize(400, 400);
 		frame.setResizable(false);
@@ -71,7 +71,6 @@ public class RegistrarSint implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		new RegistrarSint(dados, 0);
 	}
 
 	public void dadosComum() {
@@ -188,13 +187,13 @@ public class RegistrarSint implements ActionListener {
 			relacoesLabel.setBounds(10, 130, 300, 30);
 			relacoesLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
 
-			relacaoComTrue = new JRadioButton("Com parceiro");
+			relacaoComTrue = new JRadioButton("Com parceire");
 			relacaoComTrue.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 			relacaoComTrue.setBounds(10, 160, 100, 15);
 			relacaoComTrue.addActionListener(this);
 			relacaoComTrue.setOpaque(false);
 
-			relacaoSemTrue = new JRadioButton("Sem parceiro");
+			relacaoSemTrue = new JRadioButton("Sem parceire");
 			relacaoSemTrue.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 			relacaoSemTrue.setBounds(110, 160, 100, 15);
 			relacaoSemTrue.addActionListener(this);
@@ -298,7 +297,7 @@ public class RegistrarSint implements ActionListener {
 				dados.addSecrecao(intensidade, descricaoLida, nomeSintLido, texturaLida, dataLida);
 			}
 
-			new AdicionarInfo(dados);
+			
 			frame.dispose();
 		}
 

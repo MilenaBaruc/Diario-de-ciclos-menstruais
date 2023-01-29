@@ -144,8 +144,7 @@ public class ExcluirCiclo implements ActionListener{
 		}
     	if("confirmar" == e.getActionCommand()) {
     		dados.remCiclo(dadosCiclo.getIdxCiclo(dataLida));
-    		System.out.print(dataLida);
-    		//dados.remCiclo();
+    		
 			frame.dispose();
 		}
 		

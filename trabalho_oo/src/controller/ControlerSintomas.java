@@ -24,6 +24,46 @@ public class ControlerSintomas {
 		this.libido = cd.getLibido();
 	}
 	
+	public int getIdxFisico(String nome) {
+		int idx = 0;
+		for(int i = 0; i < fisico.size(); ++i) {
+			if(fisico.get(i).getNomeSintoma().equals(nome)) {
+				idx = i;
+			}
+		}
+		return idx;
+	}
+	
+	public int getIdxHumor(String nome) {
+		int idx = 0;
+		for(int i = 0; i < humor.size(); ++i) {
+			if(humor.get(i).getNomeSintoma().equals(nome)) {
+				idx = i;
+			}
+		}
+		return idx;
+	}
+	
+	public int getIdxLibido(String nome) {
+		int idx = 0;
+		for(int i = 0; i < libido.size(); ++i) {
+			if(libido.get(i).getNomeSintoma().equals(nome)) {
+				idx = i;
+			}
+		}
+		return idx;
+	}
+	
+	public int getIdxSecrecao(String nome) {
+		int idx = 0;
+		for(int i = 0; i < secrecao.size(); ++i) {
+			if(secrecao.get(i).getNomeSintoma().equals(nome)) {
+				idx = i;
+			}
+		}
+		return idx;
+	}
+	
 	public String[] getFisicoNome() {
         String[] nomeS = new String[fisico.size()];
         for (int i = 0; i < fisico.size(); ++i) {

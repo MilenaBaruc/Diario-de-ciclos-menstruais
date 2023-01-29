@@ -150,7 +150,7 @@ public class ControlerDados {
 			String humor) {
 		String nome = dados.getHumor().get(i).getNomeSintoma();
 
-		for (int j = 0; j < dados.getHumor().size(); ++j) {
+		for (int j = 0; j < dados.getHumor().size() + 5; ++j) {
 			if (dados.getHumor().get(j).getNomeSintoma().equals(nome)) {
 				dados.getHumor().get(j).setNomeSintoma(nome);
 				dados.getHumor().get(j).setDescricao(descricao);

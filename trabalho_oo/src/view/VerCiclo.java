@@ -12,6 +12,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controller.ControlerCiclo;
 import controller.ControlerDados;
@@ -24,6 +26,8 @@ public class VerCiclo implements ActionListener{
     private static ControlerDados dados;
     private ControlerCiclo dadosCiclo;
 	private JList cicloData;
+	private String dataLida;
+	
 	
     public VerCiclo(ControlerDados dados){
 		
@@ -74,10 +78,16 @@ public class VerCiclo implements ActionListener{
 		cicloData.setOpaque(false);
 		cicloData.setBackground(new Color(255, 255, 255, 0));
 		cicloData.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		
-		
-		
-		
+		cicloData.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				if (!arg0.getValueIsAdjusting()) {
+					dataLida = cicloData.getSelectedValue().toString();
+				}
+			}
+		});
+
 		painel.setBounds(20, 50, 350, 230);
 		painel.setBackground(new Color(255, 215, 249));
 		painel.setOpaque(true);
@@ -85,10 +95,8 @@ public class VerCiclo implements ActionListener{
 		painel.setLayout(null);
 		painel.setVisible(true);
 
-		
 		painel.add(cicloData);
-		frame.add(painel);;
-		
+		frame.add(painel);
 	}
 	
 	public void btnSair() {
@@ -114,6 +122,10 @@ public class VerCiclo implements ActionListener{
 		btnConfirmar.setActionCommand("confirmar");
 		btnConfirmar.addActionListener(this);
 		frame.add(btnConfirmar);
+	}
+	
+	public String getDataLida() {
+		return dataLida;
 	}
 
 	@Override
