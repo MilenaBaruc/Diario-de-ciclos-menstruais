@@ -55,7 +55,7 @@ public class ReadSintomas {
 		frame.add(labelDescricao);
 		
 		
-		labelPratica = new JLabel((pratica ? "você praticou " : "você não praticou ") + "alguma atividade fisica");
+		labelPratica = new JLabel((pratica ? "você praticou " : "você não praticou ") + "atividade fisica");
 		labelPratica.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		labelRemedio = new JLabel("você tomou " + remedioTomado);
 		labelRemedio.setFont(new Font("Times New Roman", Font.BOLD, 17));
