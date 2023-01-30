@@ -35,7 +35,7 @@ public class VerSintoma implements ActionListener{
     private String fisicoLido;
     private String libidoLido;
     private String secrecaoLido;
-    
+    private int opcao = 0;
     public VerSintoma(ControlerDados dados){
 		
 		frame = new JFrame("Lótus");
@@ -93,6 +93,7 @@ public class VerSintoma implements ActionListener{
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					fisicoLido = fisicoNome.getSelectedValue().toString();
+					opcao = 1;
 				}
 			}
 		});
@@ -111,6 +112,7 @@ public class VerSintoma implements ActionListener{
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					humorLido = humorNome.getSelectedValue().toString();
+				opcao = 2;
 				}
 			}
 		});
@@ -130,6 +132,7 @@ public class VerSintoma implements ActionListener{
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					libidoLido = libidoNome.getSelectedValue().toString();
+				opcao = 3;
 				}
 			}
 		});
@@ -148,6 +151,7 @@ public class VerSintoma implements ActionListener{
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					secrecaoLido = secrecaoNome.getSelectedValue().toString();
+				opcao = 4;
 				}
 			}
 		});
@@ -202,6 +206,36 @@ public class VerSintoma implements ActionListener{
 			frame.dispose();
 		}
     	if("confirmar" == e.getActionCommand()) {
+    		String descricaoCerta = "";
+			String nomeCerto = "";
+			String dataCerta = "";
+			int idx = 0;
+			if (opcao == 1) {
+				idx = dadosSint.getIdxFisico(fisicoLido);
+				descricaoCerta = dados.getFisico().get(idx).getDescricao();
+				nomeCerto = dados.getFisico().get(idx).getNomeSintoma();
+				dataCerta = dados.getFisico().get(idx).getData();
+			} else if (opcao == 2) {
+				idx = dadosSint.getIdxHumor(humorLido);
+				descricaoCerta = dados.getHumor().get(idx).getDescricao();
+				nomeCerto = dados.getHumor().get(idx).getNomeSintoma();
+				dataCerta = dados.getHumor().get(idx).getData();
+
+			} else if (opcao == 3) {
+				idx = dadosSint.getIdxLibido(libidoLido);
+				descricaoCerta = dados.getLibido().get(idx).getDescricao();
+				nomeCerto = dados.getLibido().get(idx).getNomeSintoma();
+				dataCerta = dados.getLibido().get(idx).getData();
+			} else if (opcao == 4) {
+				idx = dadosSint.getIdxSecrecao(secrecaoLido);
+				descricaoCerta = dados.getSecrecao().get(idx).getDescricao();
+				nomeCerto = dados.getSecrecao().get(idx).getNomeSintoma();
+				dataCerta = dados.getSecrecao().get(idx).getData();
+			}
+    		new ReadSintomas(opcao, descricaoCerta, nomeCerto, dataCerta, dados.getFisico().get(idx).getPratica(),
+					dados.getFisico().get(idx).getRemedioTomado(), dados.getHumor().get(idx).getGatilho(),
+					dados.getHumor().get(idx).getHumor(), dados.getLibido().get(idx).isRelacoesComParceiro(),
+					dados.getLibido().get(idx).isRelacoesSemParceiro(), dados.getSecrecao().get(idx).getTextura());
 			frame.dispose();
 		}
 		
