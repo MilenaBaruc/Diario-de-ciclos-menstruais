@@ -18,58 +18,56 @@ import javax.swing.event.ListSelectionListener;
 import controller.ControlerCiclo;
 import controller.ControlerDados;
 
-public class VerCiclo implements ActionListener{
-	
+public class VerCiclo implements ActionListener {
+
 	private static JFrame frame;
 	public Border blackline = BorderFactory.createLineBorder(Color.black);
-    public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
-    private static ControlerDados dados;
-    private ControlerCiclo dadosCiclo;
+	public Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+	private static ControlerDados dados;
+	private ControlerCiclo dadosCiclo;
 	private JList cicloData;
 	private String dataLida;
-	
-	
-    public VerCiclo(ControlerDados dados){
-		
+
+	public VerCiclo(ControlerDados dados) {
+
 		frame = new JFrame("Ver Ciclos");
 		frame.setSize(400, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(206, 110, 199));
 		frame.setLayout(null);
-		
 
 		this.dados = dados;
 		dadosCiclo = new ControlerCiclo(dados);
 		cicloData = new JList(dadosCiclo.getCicloData());
-		
+
 		ciclosPass();
 		painel();
 		btnConfirmar();
 		btnSair();
-		
+
 		frame.setVisible(true);
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		new VerCiclo(dados);
-		
+
 	}
-	
+
 	public void ciclosPass() {
-		
+
 		JLabel ciclosPass = new JLabel("Ciclos Passados:");
 		ciclosPass.setBounds(20, 20, 250, 15);
 		ciclosPass.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		frame.add(ciclosPass);
-		
+
 	}
-	
-    public void painel() {
-		
+
+	public void painel() {
+
 		JPanel painel = new JPanel();
-		
+
 		cicloData.setBounds(0, 0, 350, 230);
 		cicloData.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		cicloData.setLayoutOrientation(JList.VERTICAL);
@@ -98,7 +96,7 @@ public class VerCiclo implements ActionListener{
 		painel.add(cicloData);
 		frame.add(painel);
 	}
-	
+
 	public void btnSair() {
 		JButton btnSair = new JButton("Voltar");
 		btnSair.setBounds(80, 300, 80, 20);
@@ -110,9 +108,9 @@ public class VerCiclo implements ActionListener{
 		btnSair.addActionListener(this);
 		frame.add(btnSair);
 	}
-	
+
 	public void btnConfirmar() {
-		
+
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setBounds(220, 300, 80, 20);
 		btnConfirmar.setBackground(new Color(108, 70, 117));
@@ -123,7 +121,7 @@ public class VerCiclo implements ActionListener{
 		btnConfirmar.addActionListener(this);
 		frame.add(btnConfirmar);
 	}
-	
+
 	public String getDataLida() {
 		return dataLida;
 	}
@@ -131,14 +129,18 @@ public class VerCiclo implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-		if("voltar" == e.getActionCommand()) {
+
+		if ("voltar" == e.getActionCommand()) {
 			frame.dispose();
 		}
-    	if("confirmar" == e.getActionCommand()) {
-			frame.dispose();
+		if ("confirmar" == e.getActionCommand()) {
+			int idx = dadosCiclo.getIdxCiclo(dataLida);
+			new ReadCiclo(dados.getCiclo().get(idx).getDiaMenstruada(), dados.getCiclo().get(idx).getDuracaoCiclo(),
+					dados.getCiclo().get(idx).getFluxoMenstrual(), dados.getCiclo().get(idx).getDuracaoMesntruacao(),
+					dados.getCiclo().get(idx).getData());
+
 		}
-    	
+
 	}
 
 }

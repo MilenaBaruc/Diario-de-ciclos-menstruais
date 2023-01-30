@@ -35,9 +35,7 @@ public class ControlerCiclo {
 		return idx;
 	}
 	
-	public boolean getSint(int i) {
-		return ciclo.get(i).getSentiuSintoma();
-	}
+	
 	public boolean getDiaMens(int i) {
 		return ciclo.get(i).getDiaMenstruada();
 	}

@@ -29,7 +29,6 @@ public class Application {
 		ciclo.setDuracaoCiclo(25);
 		ciclo.setDuracaoMesntruacao(7);
 		ciclo.setFluxoMenstrual(Intensidade.NORMAL);
-		ciclo.setSentiuSintoma(true);
 		
 		fisico.setDescricao("Muitas dores abdominais");
 		fisico.setIntensidade(Intensidade.FORTE);
